@@ -1,0 +1,991 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="kotlin序列化中文文档">
+      
+      
+        <meta name="author" content="knightwood">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Kotlin Serialization Guide - kotlin序列化中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kotlin-serialization-guide" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="kotlin序列化中文文档" class="md-header__button md-logo" aria-label="kotlin序列化中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kotlin序列化中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kotlin Serialization Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Knightwood/kotlin-serialization-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="kotlin序列化中文文档" class="md-nav__button md-logo" aria-label="kotlin序列化中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    kotlin序列化中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Knightwood/kotlin-serialization-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Kotlin Serialization Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin Serialization Guide
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of contents 目录
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-basic-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      第1章. Basic Serialization 基本序列化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-builtin-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 章。 Builtin Classes 内置类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-serializers" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 章 Serializers 序列化程序
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 章 Polymorphism 多态性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-json-features-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 章 JSON Features JSON 功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-alternative-and-custom-formats-experimental" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 章 Alternative and custom formats (experimental)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-serialization-and-value-classes-ir-only-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录 A. Serialization and value classes (IR-only) 序列化和值类（仅限 IR）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Serialization 基本序列化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%86%85%E7%BD%AE%E7%B1%BB-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Builtin classes 内置类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serializers 序列化程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%80%81%E6%80%A7-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polymorphism 多态性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JSON%E7%89%B9%E6%80%A7-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON features JSON 功能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9B%BF%E4%BB%A3%E6%A0%BC%E5%BC%8F%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%EF%BC%88%E5%AE%9E%E9%AA%8C%E6%80%A7%EF%BC%89-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alternative and custom formats (experimental)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95%20A.%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%80%BC%E7%B1%BB%EF%BC%88%E4%BB%85%E9%99%90%20IR%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serialization and value classes (IR-specific)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of contents 目录
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-basic-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      第1章. Basic Serialization 基本序列化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-builtin-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 章。 Builtin Classes 内置类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-serializers" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 章 Serializers 序列化程序
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 章 Polymorphism 多态性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-json-features-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 章 JSON Features JSON 功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-alternative-and-custom-formats-experimental" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 章 Alternative and custom formats (experimental)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-serialization-and-value-classes-ir-only-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录 A. Serialization and value classes (IR-only) 序列化和值类（仅限 IR）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="kotlin-serialization-guide">Kotlin Serialization Guide<a class="headerlink" href="#kotlin-serialization-guide" title="Permanent link">&para;</a></h1>
+<p>Kotlin 序列化指南</p>
+<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md#kotlin-serialization-guide"></a></p>
+<p>Kotlin Serialization is a cross-platform and multi-format framework for data serialization—converting trees of objects to strings, byte arrays, or other <em>serial</em> representations and back. Kotlin Serialization fully supports and enforces the Kotlin type system, making sure only valid objects can be deserialized.<br />
+Kotlin 序列化是一种用于数据序列化的跨平台和多格式框架，可将对象树转换为字符串、字节数组或其他串行表示形式并返回。Kotlin 序列化完全支持并强制执行 Kotlin 类型系统，确保只有有效的对象才能反序列化。</p>
+<p>Kotlin Serialization is not just a library. It is a compiler plugin that is bundled with the Kotlin compiler distribution itself. Build configuration is explained in <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/README.md#setup">README.md</a>. Once the project is set up, we can start serializing some classes.<br />
+Kotlin Serialization 不仅仅是一个库。它是一个编译器插件，与 Kotlin 编译器发行版本身捆绑在一起。生成配置在 README.md 中说明。一旦项目设置好，我们就可以开始序列化一些类了。</p>
+<h2 id="table-of-contents">Table of contents 目录<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md#table-of-contents"></a></p>
+<h2 id="1-basic-serialization">第1章. <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md">Basic Serialization</a>  基本序列化<a class="headerlink" href="#1-basic-serialization" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#basics">Basics 基本</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#json-encoding">JSON encoding JSON 编码</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#json-decoding">JSON decoding JSON解码</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#serializable-classes">Serializable classes 可序列化类</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#backing-fields-are-serialized">Backing fields are serialized<br />
+    支持字段已序列化</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#constructor-properties-requirement">Constructor properties requirement<br />
+    构造函数属性要求</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#data-validation">Data validation 数据验证</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#optional-properties">Optional properties 可选属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#optional-property-initializer-call">Optional property initializer call<br />
+    可选属性初始值设定项调用</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#required-properties">Required properties 必需的属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#transient-properties">Transient properties 瞬态特性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#defaults-are-not-encoded-by-default">Defaults are not encoded by default<br />
+    默认情况下不对默认值进行编码</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#nullable-properties">Nullable properties 可为 null 的属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#type-safety-is-enforced">Type safety is enforced<br />
+    强制执行型式安全</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#referenced-objects">Referenced objects 引用的对象</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#no-compression-of-repeated-references">No compression of repeated references<br />
+    不压缩重复引用</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#generic-classes">Generic classes 泛型类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#serial-field-names">Serial field names 串行字段名称</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-builtin-classes">第 2 章。 <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md">Builtin Classes</a>  内置类<a class="headerlink" href="#2-builtin-classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#primitives">Primitives 原</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#numbers">Numbers 数字</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#long-numbers">Long numbers 长数字</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#long-numbers-as-strings">Long numbers as strings<br />
+    长数字作为字符串</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#enum-classes">Enum classes 格洛斯</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#serial-names-of-enum-entries">Serial names of enum entries<br />
+    枚举条目的序列化名称</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#composites">Composites 复合材料</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#pair-and-triple">Pair and triple 成对和三人</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#lists">Lists 列表</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#sets-and-other-collections">Sets and other collections<br />
+    套装和其他集合</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#deserializing-collections">Deserializing collections<br />
+    反序列化集合</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#maps">Maps 地图</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#unit-and-singleton-objects">Unit and singleton objects<br />
+    单位和单一实例对象</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#duration">Duration 期间</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#nothing">Nothing 无</a></li>
+</ul>
+<h2 id="3-serializers">第 3 章 <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md">Serializers</a> 序列化程序<a class="headerlink" href="#3-serializers" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#introduction-to-serializers">Introduction to serializers<br />
+    序列化程序简介</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#plugin-generated-serializer">Plugin-generated serializer<br />
+    插件生成的序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#plugin-generated-generic-serializer">Plugin-generated generic serializer<br />
+    插件生成的泛型序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#builtin-primitive-serializers">Builtin primitive serializers<br />
+    内置基元序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#constructing-collection-serializers">Constructing collection serializers<br />
+    构造集合序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#using-top-level-serializer-function">Using top-level serializer function<br />
+    使用顶级序列化程序功能</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#custom-serializers">Custom serializers 自定义序列化程序</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#primitive-serializer">Primitive serializer 基元序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#delegating-serializers">Delegating serializers 委派序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#composite-serializer-via-surrogate">Composite serializer via surrogate<br />
+    通过代理项的复合序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#hand-written-composite-serializer">Hand-written composite serializer<br />
+    手写复合序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#sequential-decoding-protocol-experimental">Sequential decoding protocol (experimental)<br />
+    顺序解码协议（实验性）</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#serializing-3rd-party-classes">Serializing 3rd party classes<br />
+    序列化第三方类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#passing-a-serializer-manually">Passing a serializer manually<br />
+    手动传递序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#specifying-serializer-on-a-property">Specifying serializer on a property<br />
+    在属性上指定序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#specifying-serializer-for-a-particular-type">Specifying serializer for a particular type<br />
+    为特定类型指定序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#specifying-serializers-for-a-file">Specifying serializers for a file<br />
+    指定文件的序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#specifying-serializer-globally-using-typealias">Specifying serializer globally using typealias<br />
+    使用 typealias 全局指定序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#custom-serializers-for-a-generic-type">Custom serializers for a generic type<br />
+    泛型类型的自定义序列化程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#format-specific-serializers">Format-specific serializers<br />
+    特定于格式的序列化程序</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#contextual-serialization">Contextual serialization<br />
+    上下文序列化</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#serializers-module">Serializers module 串行程序模块</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#contextual-serialization-and-generic-classes">Contextual serialization and generic classes<br />
+    上下文序列化和泛型类</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#deriving-external-serializer-for-another-kotlin-class-experimental">Deriving external serializer for another Kotlin class (experimental)<br />
+    为另一个 Kotlin 类派生外部序列化程序（实验性）</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#external-serialization-uses-properties">External serialization uses properties<br />
+    外部序列化使用属性</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="4-polymorphism">第 4 章 <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md">Polymorphism</a> 多态性<a class="headerlink" href="#4-polymorphism" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#closed-polymorphism">Closed polymorphism 闭合多态性</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#static-types">Static types 静态类型</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#designing-serializable-hierarchy">Designing serializable hierarchy<br />
+    设计可序列化的层次结构</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#sealed-classes">Sealed classes 密封类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#custom-subclass-serial-name">Custom subclass serial name<br />
+    自定义子类序列化名称</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#concrete-properties-in-a-base-class">Concrete properties in a base class<br />
+    基类中的具体属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#objects">Objects 对象</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#open-polymorphism">Open polymorphism 开放多态性</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#registered-subclasses">Registered subclasses 已注册的子类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#serializing-interfaces">Serializing interfaces 序列化接口</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#property-of-an-interface-type">Property of an interface type<br />
+    接口类型的属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#static-parent-type-lookup-for-polymorphism">Static parent type lookup for polymorphism<br />
+    多态性的静态父类型查找</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#explicitly-marking-polymorphic-class-properties">Explicitly marking polymorphic class properties<br />
+    显式标记多态类属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#registering-multiple-superclasses">Registering multiple superclasses<br />
+    注册多个超类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#polymorphism-and-generic-classes">Polymorphism and generic classes<br />
+    多态性和泛型类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#merging-library-serializers-modules">Merging library serializers modules<br />
+    合并库序列化程序模块</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#default-polymorphic-type-handler-for-deserialization">Default polymorphic type handler for deserialization<br />
+    用于反序列化的默认多态类型处理程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#default-polymorphic-type-handler-for-serialization">Default polymorphic type handler for serialization<br />
+    用于序列化的默认多态类型处理程序</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-json-features-json">第 5 <strong>章</strong> <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md">JSON Features</a> JSON 功能<a class="headerlink" href="#5-json-features-json" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-configuration">Json configuration Json 配置</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#pretty-printing">Pretty printing 漂亮的印刷</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#lenient-parsing">Lenient parsing 宽松解析</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#ignoring-unknown-keys">Ignoring unknown keys 忽略未知键</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#alternative-json-names">Alternative Json names 备用 Json 名称</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#coercing-input-values">Coercing input values 强制输入值</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#encoding-defaults">Encoding defaults 编码默认值</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#explicit-nulls">Explicit nulls 显式 null</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#allowing-structured-map-keys">Allowing structured map keys<br />
+    允许结构化映射键</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#allowing-special-floating-point-values">Allowing special floating-point values<br />
+    允许特殊的浮点值</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#class-discriminator-for-polymorphism">Class discriminator for polymorphism<br />
+    多态性的类鉴别器</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#class-discriminator-output-mode">Class discriminator output mode<br />
+    类鉴别器输出方式</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#decoding-enums-in-a-case-insensitive-manner">Decoding enums in a case-insensitive manner<br />
+    以不区分大小写的方式解码枚举</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#global-naming-strategy">Global naming strategy 全局命名策略</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-elements">Json elements Json 元素</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#parsing-to-json-element">Parsing to Json element<br />
+    解析为 Json 元素</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#types-of-json-elements">Types of Json elements<br />
+    Json 元素的类型</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-element-builders">Json element builders Json 元素生成器</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#decoding-json-elements">Decoding Json elements 解码 Json 元素</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#encoding-literal-json-content-experimental">Encoding literal Json content (experimental)<br />
+    对文字 Json 内容进行编码（实验性）</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#serializing-large-decimal-numbers">Serializing large decimal numbers<br />
+    序列化大十进制数</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#using-jsonunquotedliteral-to-create-a-literal-unquoted-value-of-null-is-forbidden">Using <code>JsonUnquotedLiteral</code> to create a literal unquoted value of <code>null</code> is forbidden<br />
+    禁止用于 <code>JsonUnquotedLiteral</code> 创建 的 <code>null</code> 文字未加引号的值</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-transformations">Json transformations Json 转换</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#array-wrapping">Array wrapping 数组包装</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#array-unwrapping">Array unwrapping 数组解包</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#manipulating-default-values">Manipulating default values<br />
+    操作默认值</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#content-based-polymorphic-deserialization">Content-based polymorphic deserialization<br />
+    基于内容的多态反序列化</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#under-the-hood-experimental">Under the hood (experimental)<br />
+    引擎盖下（实验性）</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#maintaining-custom-json-attributes">Maintaining custom JSON attributes<br />
+    维护自定义 JSON 属性</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="6-alternative-and-custom-formats-experimental">第 6 章 <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md">Alternative and custom formats (experimental)</a><a class="headerlink" href="#6-alternative-and-custom-formats-experimental" title="Permanent link">&para;</a></h2>
+<p>替代格式和自定义格式（实验性）</p>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#cbor-experimental">CBOR (experimental) CBOR（实验性）</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#ignoring-unknown-keys">Ignoring unknown keys 忽略未知键</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#byte-arrays-and-cbor-data-types">Byte arrays and CBOR data types<br />
+    字节数组和 CBOR 数据类型</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#protobuf-experimental">ProtoBuf (experimental)<br />
+    ProtoBuf（实验性）</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#field-numbers">Field numbers 字段编号</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#integer-types">Integer types 整数类型</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#lists-as-repeated-fields">Lists as repeated fields<br />
+    作为重复字段列出</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#packed-fields">Packed fields 填充字段</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#protobuf-schema-generator-experimental">ProtoBuf schema generator (experimental)<br />
+    ProtoBuf 模式生成器（实验性）</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#properties-experimental">Properties (experimental)<br />
+    属性（实验性）</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#custom-formats-experimental">Custom formats (experimental)<br />
+    自定义格式（实验性）</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#basic-encoder">Basic encoder 基本编码器</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#basic-decoder">Basic decoder 基本解码器</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#sequential-decoding">Sequential decoding 顺序解码</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#adding-collection-support">Adding collection support<br />
+    添加集合支持</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#adding-null-support">Adding null support 添加 null 支持</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#efficient-binary-format">Efficient binary format 高效的二进制格式</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md#format-specific-types">Format-specific types 特定于格式的类型</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="a-serialization-and-value-classes-ir-only-ir">附录 A. <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md">Serialization and value classes (IR-only)</a>  序列化和值类（仅限 IR）<a class="headerlink" href="#a-serialization-and-value-classes-ir-only-ir" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#serializable-value-classes">Serializable value classes<br />
+    可序列化值类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#unsigned-types-support-json-only">Unsigned types support (JSON only)<br />
+    无符号类型支持（仅限 JSON）</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#using-value-classes-in-your-custom-serializers">Using value classes in your custom serializers<br />
+    在自定义序列化程序中使用值类</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="上一页: 简单使用">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                简单使用
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-footer__link md-footer__link--next" aria-label="下一页: Basic Serialization 基本序列化">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Basic Serialization 基本序列化
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - 2024 knightwood
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.prune", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

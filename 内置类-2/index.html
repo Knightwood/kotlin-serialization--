@@ -1,0 +1,1228 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="kotlin序列化中文文档">
+      
+      
+        <meta name="author" content="knightwood">
+      
+      
+      
+        <link rel="prev" href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/">
+      
+      
+        <link rel="next" href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Builtin classes 内置类 - kotlin序列化中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#builtin-classes" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="kotlin序列化中文文档" class="md-header__button md-logo" aria-label="kotlin序列化中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kotlin序列化中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Builtin classes 内置类
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Knightwood/kotlin-serialization-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="kotlin序列化中文文档" class="md-nav__button md-logo" aria-label="kotlin序列化中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    kotlin序列化中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Knightwood/kotlin-serialization-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%9B%AE%E5%BD%95-0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin Serialization Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Serialization 基本序列化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Builtin classes 内置类
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Builtin classes 内置类
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primitives 基元（基本数据类型）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primitives 基元（基本数据类型）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numbers 数字
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long numbers 长数字
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-numbers-as-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long numbers as strings 长数字作为字符串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum classes 枚举类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serial-names-of-enum-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial names of enum entries 枚举类的序列化名
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composites 复合类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Composites 复合类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pair-and-triple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pair and triple
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sets-and-other-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sets and other collections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserializing-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deserializing collections 反序列化集合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-and-singleton-objects-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit and singleton objects Unit和单例对象
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nothing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serializers 序列化程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%80%81%E6%80%A7-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polymorphism 多态性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JSON%E7%89%B9%E6%80%A7-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON features JSON 功能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9B%BF%E4%BB%A3%E6%A0%BC%E5%BC%8F%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%EF%BC%88%E5%AE%9E%E9%AA%8C%E6%80%A7%EF%BC%89-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alternative and custom formats (experimental)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95%20A.%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%80%BC%E7%B1%BB%EF%BC%88%E4%BB%85%E9%99%90%20IR%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serialization and value classes (IR-specific)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primitives 基元（基本数据类型）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primitives 基元（基本数据类型）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numbers 数字
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long numbers 长数字
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-numbers-as-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long numbers as strings 长数字作为字符串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum classes 枚举类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serial-names-of-enum-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial names of enum entries 枚举类的序列化名
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composites 复合类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Composites 复合类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pair-and-triple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pair and triple
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sets-and-other-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sets and other collections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserializing-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deserializing collections 反序列化集合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-and-singleton-objects-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit and singleton objects Unit和单例对象
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nothing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="builtin-classes">Builtin classes 内置类<a class="headerlink" href="#builtin-classes" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#builtin-classes"></a></p>
+<p>This is the second chapter of the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md">Kotlin Serialization Guide</a>. In addition to all the primitive types and strings, serialization for some classes from the Kotlin standard library, including the standard collections, is built into Kotlin Serialization. This chapter explains the details.<br />
+这是《Kotlin 序列化指南》的第二章。除了所有基元类型和字符串之外，Kotlin 标准库中某些类（包括标准集合）的序列化也内置于 Kotlin 序列化中。本章将介绍详细信息。</p>
+<p><strong>Table of contents 目录</strong></p>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#primitives">Primitives 原</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#numbers">Numbers 数字</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#long-numbers">Long numbers 长数字</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#long-numbers-as-strings">Long numbers as strings<br />
+    长数字作为字符串</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#enum-classes">Enum classes 格洛斯</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#serial-names-of-enum-entries">Serial names of enum entries<br />
+    枚举条目的序列化名称</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#composites">Composites 复合材料</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#pair-and-triple">Pair and triple 成对和三人</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#lists">Lists 列表</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#sets-and-other-collections">Sets and other collections<br />
+    套装和其他集合</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#deserializing-collections">Deserializing collections<br />
+    反序列化集合</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#maps">Maps 地图</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#unit-and-singleton-objects">Unit and singleton objects<br />
+    单位和单一实例对象</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#duration">Duration 期间</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#nothing">Nothing 无</a></li>
+</ul>
+<h2 id="primitives">Primitives 基元（基本数据类型）<a class="headerlink" href="#primitives" title="Permanent link">&para;</a></h2>
+<p>Kotlin Serialization has the following ten primitives: <code>Boolean</code>, <code>Byte</code>, <code>Short</code>, <code>Int</code>, <code>Long</code>, <code>Float</code>, <code>Double</code>, <code>Char</code>, <code>String</code>, and enums. The other types in Kotlin Serialization are <em>composite</em>—composed of those primitive values.<br />
+Kotlin 序列化包含以下十个基元： <code>Boolean</code> 、、 <code>Byte</code> 、 <code>Short</code> <code>Int</code> <code>Long</code> <code>Float</code> <code>Double</code> <code>Char</code> <code>String</code> Kotlin 序列化中的其他类型是复合的，由这些基元值组成。</p>
+<h3 id="numbers">Numbers 数字<a class="headerlink" href="#numbers" title="Permanent link">&para;</a></h3>
+<p>All types of integer and floating-point Kotlin numbers can be serialized.<br />
+所有类型的整数和浮点 Kotlin 数字都可以序列化。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Data</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">answer</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">pi</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">)</span><span class="w">                     </span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="m">42</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-01.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Their natural representation in JSON is used.<br />
+使用它们在 JSON 中的自然表示形式。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{&quot;answer&quot;:42,&quot;pi&quot;:3.141592653589793}
+</span></code></pre></div>
+<h3 id="long-numbers">Long numbers 长数字<a class="headerlink" href="#long-numbers" title="Permanent link">&para;</a></h3>
+<p>Long integers are serializable, too.<br />
+长整数也是可序列化的。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Data</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">signature</span><span class="p">:</span><span class="w"> </span><span class="kt">Long</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="m">0</span><span class="n">x1CAFE2FEED0BABE0</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-02.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>By default they are serialized to JSON as numbers.<br />
+默认情况下，它们作为数字序列化为 JSON。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{&quot;signature&quot;:2067120338512882656}
+</span></code></pre></div>
+<h3 id="long-numbers-as-strings">Long numbers as strings 长数字作为字符串<a class="headerlink" href="#long-numbers-as-strings" title="Permanent link">&para;</a></h3>
+<p>The JSON output from the previous example will get decoded normally by Kotlin Serialization running on Kotlin/JS. However, if we try to parse this JSON by native JavaScript methods, we get this truncated result.<br />
+上一个示例的 JSON 输出将由在 Kotlin/JS 上运行的 Kotlin 序列化正常解码。但是，如果我们尝试通过原生 JavaScript 方法解析此 JSON，我们会得到这个截断的结果。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>JSON.parse(&quot;{\&quot;signature\&quot;:2067120338512882656}&quot;)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>▶ {signature: 2067120338512882700} 
+</span></code></pre></div>
+<p>The full range of a Kotlin Long does not fit in the JavaScript number, so its precision gets lost in JavaScript. A common workaround is to represent long numbers with full precision using the JSON string type. This approach is optionally supported by Kotlin Serialization with <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.builtins/-long-as-string-serializer/index.html">LongAsStringSerializer</a>, which can be specified for a given Long property using the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html"><code>@Serializable</code></a> annotation:  </p>
+<p>Kotlin Long 的完整范围不适合 JavaScript 编号，因此其精度在 JavaScript 中丢失。一种常见的解决方法是使用 JSON 字符串类型以完全精度表示长数字。此方法可由 Kotlin Serialization with LongAsStringSerializer 选择性地支持，可以使用以下 <code>@Serializable</code> 注释为给定的 Long 属性指定此方法：</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Data</span><span class="p">(</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nd">@Serializable</span><span class="p">(</span><span class="n">with</span><span class="o">=</span><span class="n">LongAsStringSerializer</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">signature</span><span class="p">:</span><span class="w"> </span><span class="kt">Long</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="m">0</span><span class="n">x1CAFE2FEED0BABE0</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-03.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>This JSON gets parsed natively by JavaScript without loss of precision.<br />
+此 JSON 由 JavaScript 本机解析，而不会损失精度。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{&quot;signature&quot;:&quot;2067120338512882656&quot;}
+</span></code></pre></div>
+<blockquote>
+<p>The section on <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#specifying-serializers-for-a-file">Specifying serializers for a file</a> explains how a serializer like <code>LongAsStringSerializer</code> can be specified for all properties in a file.<br />
+为文件指定序列化程序一节介绍了如何为文件中的所有属性指定序列化程序。 <code>LongAsStringSerializer</code></p>
+</blockquote>
+<h3 id="enum-classes">Enum classes 枚举类<a class="headerlink" href="#enum-classes" title="Permanent link">&para;</a></h3>
+<p>All enum classes are serializable out of the box without having to mark them <code>@Serializable</code>, as the following example shows.<br />
+所有枚举类都是开箱即用的可序列化，无需标记它们 <code>@Serializable</code> ，如以下示例所示。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// The @Serializable annotation is not needed for enum classes</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">SUPPORTED</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nd">@Serializable</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">status</span><span class="p">:</span><span class="w"> </span><span class="n">Status</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Status</span><span class="p">.</span><span class="na">SUPPORTED</span><span class="p">)</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-04.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>In JSON an enum gets encoded as a string.<br />
+在 JSON 中，枚举被编码为字符串。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>{&quot;name&quot;:&quot;kotlinx.serialization&quot;,&quot;status&quot;:&quot;SUPPORTED&quot;}
+</span></code></pre></div>
+<blockquote>
+<p>Note: On Kotlin/JS and Kotlin/Native, <code>@Serializable</code> annotation is needed for enum class if you want to use it as a root object — i.e. use <code>encodeToString&lt;Status&gt;(Status.SUPPORTED)</code>.<br />
+注意：在 Kotlin/JS 和 Kotlin/Native 上， <code>@Serializable</code> 如果您想将枚举类用作根对象，则需要对枚举类进行注释——即使用 <code>encodeToString&lt;Status&gt;(Status.SUPPORTED)</code> .</p>
+</blockquote>
+<h3 id="serial-names-of-enum-entries">Serial names of enum entries  枚举类的序列化名<a class="headerlink" href="#serial-names-of-enum-entries" title="Permanent link">&para;</a></h3>
+<p>Serial names of enum entries can be customized with the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serial-name/index.html">SerialName</a> annotation just like it was shown for properties in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#serial-field-names">Serial field names</a> section. However, in this case, the whole enum class must be marked with the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html"><code>@Serializable</code></a> annotation.<br />
+可以使用 SerialName 注解自定义枚举条目的序列化名称，就像在“串行字段名称”部分中为属性显示的那样。但是，在这种情况下，必须用 <code>@Serializable</code> 注释标记整个枚举类。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Serializable</span><span class="w"> </span><span class="c1">// required because of @SerialName</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;maintained&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">SUPPORTED</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nd">@Serializable</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">status</span><span class="p">:</span><span class="w"> </span><span class="n">Status</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Status</span><span class="p">.</span><span class="na">SUPPORTED</span><span class="p">)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-05.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>We see that the specified serial name is now used in the resulting JSON.<br />
+我们看到，在生成的 JSON 中现在使用了指定的序列化名称。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>{&quot;name&quot;:&quot;kotlinx.serialization&quot;,&quot;status&quot;:&quot;maintained&quot;}
+</span></code></pre></div>
+<h2 id="composites">Composites 复合类型<a class="headerlink" href="#composites" title="Permanent link">&para;</a></h2>
+<p>A number of composite types from the standard library are supported by Kotlin Serialization.<br />
+Kotlin 序列化支持标准库中的许多复合类型。</p>
+<h3 id="pair-and-triple">Pair and triple<a class="headerlink" href="#pair-and-triple" title="Permanent link">&para;</a></h3>
+<p>The simple data classes <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/">Pair</a> and <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-triple/">Triple</a> from the Kotlin standard library are serializable.<br />
+Kotlin 标准库中的简单数据类 Pair 和 Triple 是可序列化的。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-06.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>{&quot;first&quot;:1,&quot;second&quot;:{&quot;name&quot;:&quot;kotlinx.serialization&quot;}}
+</span></code></pre></div>
+<blockquote>
+<p>Not all classes from the Kotlin standard library are serializable. In particular, ranges and the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/">Regex</a> class are not serializable at the moment. Support for their serialization may be added in the future.<br />
+并非 Kotlin 标准库中的所有类都是可序列化的。特别是，范围和正则表达式类目前不可序列化。将来可能会添加对其序列化的支持。</p>
+</blockquote>
+<h3 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">&para;</a></h3>
+<p>A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/">List</a> of serializable classes can be serialized.<br />
+可以序列化可序列化类的列表。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">),</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">)</span><span class="w">    </span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">list</span><span class="p">))</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-07.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>The result is represented as a list in JSON.<br />
+结果以 JSON 形式表示为列表。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[{&quot;name&quot;:&quot;kotlinx.serialization&quot;},{&quot;name&quot;:&quot;kotlinx.coroutines&quot;}]
+</span></code></pre></div>
+<h3 id="sets-and-other-collections">Sets and other collections<a class="headerlink" href="#sets-and-other-collections" title="Permanent link">&para;</a></h3>
+<p>Other collections, like <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/">Set</a>, are also serializable.<br />
+其他集合（如 Set）也是可序列化的。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">setOf</span><span class="p">(</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">        </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">),</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">)</span><span class="w">    </span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="k">set</span><span class="p">))</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-08.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/">Set</a> is also represented as a list in JSON, like all other collections.<br />
+与所有其他集合一样，Set 也以 JSON 表示为列表。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[{&quot;name&quot;:&quot;kotlinx.serialization&quot;},{&quot;name&quot;:&quot;kotlinx.coroutines&quot;}]
+</span></code></pre></div>
+<h3 id="deserializing-collections">Deserializing collections  反序列化集合<a class="headerlink" href="#deserializing-collections" title="Permanent link">&para;</a></h3>
+<p>During deserialization, the type of the resulting object is determined by the static type that was specified in the source code—either as the type of the property or as the type parameter of the decoding function. The following example shows how the same JSON list of integers is deserialized into two properties of different Kotlin types.<br />
+在反序列化过程中，生成对象的类型由源代码中指定的静态类型确定，该类型可以是属性的类型，也可以是解码函数的类型参数。以下示例显示了如何将相同的整数 JSON 列表反序列化为不同 Kotlin 类型的两个属性。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Data</span><span class="p">(</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="p">:</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="s">        {</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="s">            &quot;a&quot;: [42, 42],</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="s">            &quot;b&quot;: [42, 42]</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="s">        }</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="s">    &quot;&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-09.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Because the <code>data.b</code> property is a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/">Set</a>, the duplicate values from it disappeared.<br />
+由于该 <code>data.b</code> 属性是 Set，因此该属性中的重复值将消失。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Data(a=[42, 42], b=[42])
+</span></code></pre></div>
+<h3 id="maps">Maps<a class="headerlink" href="#maps" title="Permanent link">&para;</a></h3>
+<p>A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/">Map</a> with primitive or enum keys and arbitrary serializable values can be serialized.<br />
+可以序列化具有基元或枚举键以及任意可序列化值的映射。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">        </span><span class="m">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">),</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">        </span><span class="m">2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">)</span><span class="w">    </span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">map</span><span class="p">))</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-10.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Kotlin maps in JSON are represented as objects. In JSON object keys are always strings, so keys are encoded as strings even if they are numbers in Kotlin, as we can see below.<br />
+JSON 中的 Kotlin 地图表示为对象。在 JSON 对象中，键始终是字符串，因此键被编码为字符串，即使它们在 Kotlin 中是数字，如下图所示。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>{&quot;1&quot;:{&quot;name&quot;:&quot;kotlinx.serialization&quot;},&quot;2&quot;:{&quot;name&quot;:&quot;kotlinx.coroutines&quot;}}
+</span></code></pre></div>
+<blockquote>
+<p>It is a JSON-specific limitation that keys cannot be composite. It can be lifted as shown in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#allowing-structured-map-keys">Allowing structured map keys</a> section.<br />
+键不能是复合的，这是特定于 JSON 的限制。可以按照允许结构化映射键部分中所示的方式将其解除。</p>
+</blockquote>
+<h3 id="unit-and-singleton-objects-unit">Unit and singleton objects  Unit和单例对象<a class="headerlink" href="#unit-and-singleton-objects-unit" title="Permanent link">&para;</a></h3>
+<p>The Kotlin builtin <code>Unit</code> type is also serializable. <code>Unit</code> is a Kotlin <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html">singleton object</a>, and is handled equally with other Kotlin objects.<br />
+Kotlin 内置 <code>Unit</code> 类型也是可序列化的。 <code>Unit</code> 是一个 Kotlin 单例对象，与其他 Kotlin 对象处理方式相同。</p>
+<p>Conceptually, a singleton is a class with only one instance, meaning that state does not define the object, but the object defines its state. In JSON, objects are serialized as empty structures.<br />
+从概念上讲，单例是一个只有一个实例的类，这意味着状态不定义对象，但对象定义其状态。在 JSON 中，对象被序列化为空结构。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kd">object</span><span class="w"> </span><span class="nc">SerializationVersion</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">libraryVersion</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">}</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">SerializationVersion</span><span class="p">))</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="kt">Unit</span><span class="p">))</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-11.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>While it may seem useless at first glance, this comes in handy for sealed class serialization, which is explained in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#objects">Polymorphism. Objects</a> section.<br />
+虽然乍一看似乎毫无用处，但这对于密封类序列化非常有用，这在多态性中进行了解释。“对象”部分。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>{}
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>{}
+</span></code></pre></div>
+<blockquote>
+<p>Serialization of objects is format specific. Other formats may represent objects differently, e.g. using their fully-qualified names.<br />
+对象的序列化是特定于格式的。其他格式可能以不同的方式表示对象，例如使用其完全限定的名称。</p>
+</blockquote>
+<h3 id="duration">Duration<a class="headerlink" href="#duration" title="Permanent link">&para;</a></h3>
+<p>Since Kotlin <code>1.7.20</code> the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/">Duration</a> class has become serializable.<br />
+从 Kotlin <code>1.7.20</code> 开始，Duration 类变得可序列化。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000.</span><span class="n">toDuration</span><span class="p">(</span><span class="n">DurationUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">)</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">duration</span><span class="p">))</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-12.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Duration is serialized as a string in the ISO-8601-2 format.<br />
+持续时间以 ISO-8601-2 格式序列化为字符串。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>&quot;PT16M40S&quot;
+</span></code></pre></div>
+<h2 id="nothing">Nothing<a class="headerlink" href="#nothing" title="Permanent link">&para;</a></h2>
+<p>By default, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html">Nothing</a> is a serializable class. However, since there are no instances of this class, it is impossible to encode or decode its values - any attempt will cause an exception.<br />
+默认情况下，Nothing 是可序列化的类。但是，由于没有此类的实例，因此无法对其值进行编码或解码 - 任何尝试都会导致异常。</p>
+<p>This serializer is used when syntactically some type is needed, but it is not actually used in serialization. For example, when using parameterized polymorphic base classes:<br />
+当语法上需要某种类型时，会使用此序列化程序，但实际上并未在序列化中使用。例如，使用参数化多态基类时：</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">ParametrizedParent</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="nd">@Serializable</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">ChildWithoutParameter</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">value</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ParametrizedParent</span><span class="o">&lt;</span><span class="n">Nothing</span><span class="o">&gt;</span><span class="p">()</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="p">}</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">ParametrizedParent</span><span class="p">.</span><span class="na">ChildWithoutParameter</span><span class="p">(</span><span class="m">42</span><span class="p">)))</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-builtin-13.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>When encoding, the serializer for the <code>Nothing</code> was not used<br />
+编码时，未使用 的 <code>Nothing</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>{&quot;value&quot;:42}
+</span></code></pre></div>
+<hr />
+<p>The next chapter covers <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md">Serializers</a>.<br />
+下一章将介绍序列化程序。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Basic Serialization 基本序列化">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Basic Serialization 基本序列化
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/" class="md-footer__link md-footer__link--next" aria-label="下一页: Serializers 序列化程序">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Serializers 序列化程序
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - 2024 knightwood
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.prune", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

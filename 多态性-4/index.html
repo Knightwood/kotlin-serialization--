@@ -1,0 +1,1572 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="kotlin序列化中文文档">
+      
+      
+        <meta name="author" content="knightwood">
+      
+      
+      
+        <link rel="prev" href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/">
+      
+      
+        <link rel="next" href="../JSON%E7%89%B9%E6%80%A7-5/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Polymorphism 多态性 - kotlin序列化中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#polymorphism" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="kotlin序列化中文文档" class="md-header__button md-logo" aria-label="kotlin序列化中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kotlin序列化中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Polymorphism 多态性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Knightwood/kotlin-serialization-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="kotlin序列化中文文档" class="md-nav__button md-logo" aria-label="kotlin序列化中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    kotlin序列化中文文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Knightwood/kotlin-serialization-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%9B%AE%E5%BD%95-0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin Serialization Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Serialization 基本序列化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%86%85%E7%BD%AE%E7%B1%BB-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Builtin classes 内置类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serializers 序列化程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Polymorphism 多态性
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Polymorphism 多态性
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#closed-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed polymorphism 闭合多态性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Closed polymorphism 闭合多态性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static types 静态类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-serializable-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing serializable hierarchy 设计可序列化的层次结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sealed-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sealed classes 密封类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-subclass-serial-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom subclass serial name 自定义子类序列化名称
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concrete-properties-in-a-base-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concrete properties in a base class 基类中的具体属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objects object类
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open polymorphism 开放多态性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open polymorphism 开放多态性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registered-subclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registered subclasses 已注册的子类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializing-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serializing interfaces 序列化接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-of-an-interface-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property of an interface type 接口类型的属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-parent-type-lookup-for-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static parent type lookup for polymorphism 多态性的静态父类型查找
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicitly-marking-polymorphic-class-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicitly marking polymorphic class properties 显式标记多态类属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-multiple-superclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registering multiple superclasses 注册多个超类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphism-and-generic-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymorphism and generic classes 多态性和泛型类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merging-library-serializers-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merging library serializers modules 合并库序列化程序模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-polymorphic-type-handler-for-deserialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default polymorphic type handler for deserialization 用于反序列化的默认多态类型处理程序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-polymorphic-type-handler-for-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default polymorphic type handler for serialization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JSON%E7%89%B9%E6%80%A7-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON features JSON 功能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9B%BF%E4%BB%A3%E6%A0%BC%E5%BC%8F%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%EF%BC%88%E5%AE%9E%E9%AA%8C%E6%80%A7%EF%BC%89-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alternative and custom formats (experimental)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95%20A.%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%80%BC%E7%B1%BB%EF%BC%88%E4%BB%85%E9%99%90%20IR%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serialization and value classes (IR-specific)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#closed-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closed polymorphism 闭合多态性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Closed polymorphism 闭合多态性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static types 静态类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-serializable-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing serializable hierarchy 设计可序列化的层次结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sealed-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sealed classes 密封类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-subclass-serial-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom subclass serial name 自定义子类序列化名称
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concrete-properties-in-a-base-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concrete properties in a base class 基类中的具体属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objects object类
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open polymorphism 开放多态性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open polymorphism 开放多态性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registered-subclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registered subclasses 已注册的子类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializing-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serializing interfaces 序列化接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-of-an-interface-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property of an interface type 接口类型的属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-parent-type-lookup-for-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static parent type lookup for polymorphism 多态性的静态父类型查找
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicitly-marking-polymorphic-class-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicitly marking polymorphic class properties 显式标记多态类属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-multiple-superclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registering multiple superclasses 注册多个超类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphism-and-generic-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymorphism and generic classes 多态性和泛型类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merging-library-serializers-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merging library serializers modules 合并库序列化程序模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-polymorphic-type-handler-for-deserialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default polymorphic type handler for deserialization 用于反序列化的默认多态类型处理程序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-polymorphic-type-handler-for-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default polymorphic type handler for serialization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="polymorphism">Polymorphism 多态性<a class="headerlink" href="#polymorphism" title="Permanent link">&para;</a></h1>
+<p>This is the fourth chapter of the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md">Kotlin Serialization Guide</a>. In this chapter we&rsquo;ll see how Kotlin Serialization deals with polymorphic class hierarchies.<br />
+这是《Kotlin 序列化指南》的第四章。在本章中，我们将了解 Kotlin 序列化如何处理多态类层次结构。</p>
+<p><strong>Table of contents 目录</strong></p>
+<ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#closed-polymorphism">Closed polymorphism 闭合多态性</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#static-types">Static types 静态类型</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#designing-serializable-hierarchy">Designing serializable hierarchy<br />
+    设计可序列化的层次结构</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#sealed-classes">Sealed classes 密封类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#custom-subclass-serial-name">Custom subclass serial name<br />
+    自定义子类序列化名称</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#concrete-properties-in-a-base-class">Concrete properties in a base class<br />
+    基类中的具体属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#objects">Objects 对象</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#open-polymorphism">Open polymorphism 开放多态性</a><ul>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#registered-subclasses">Registered subclasses 已注册的子类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#serializing-interfaces">Serializing interfaces 序列化接口</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#property-of-an-interface-type">Property of an interface type<br />
+    接口类型的属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#static-parent-type-lookup-for-polymorphism">Static parent type lookup for polymorphism<br />
+    多态性的静态父类型查找</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#explicitly-marking-polymorphic-class-properties">Explicitly marking polymorphic class properties<br />
+    显式标记多态类属性</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#registering-multiple-superclasses">Registering multiple superclasses<br />
+    注册多个超类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#polymorphism-and-generic-classes">Polymorphism and generic classes<br />
+    多态性和泛型类</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#merging-library-serializers-modules">Merging library serializers modules<br />
+    合并库序列化程序模块</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#default-polymorphic-type-handler-for-deserialization">Default polymorphic type handler for deserialization<br />
+    用于反序列化的默认多态类型处理程序</a></li>
+<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#default-polymorphic-type-handler-for-serialization">Default polymorphic type handler for serialization<br />
+    用于序列化的默认多态类型处理程序</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="closed-polymorphism">Closed polymorphism 闭合多态性<a class="headerlink" href="#closed-polymorphism" title="Permanent link">&para;</a></h2>
+<p>Let us start with basic introduction to polymorphism.<br />
+让我们从多态性的基本介绍开始。</p>
+<h3 id="static-types">Static types 静态类型<a class="headerlink" href="#static-types" title="Permanent link">&para;</a></h3>
+<p>Kotlin Serialization is fully static with respect to types by default. The structure of encoded objects is determined by <em>compile-time</em> types of objects. Let&rsquo;s examine this aspect in more detail and learn how to serialize polymorphic data structures, where the type of data is determined at runtime.  </p>
+<p>默认情况下，Kotlin 序列化对于类型是完全静态的。编码对象的结构由对象的编译时类型确定。让我们更详细地研究这一方面，并学习如何序列化多态数据结构，其中数据类型是在运行时确定的。</p>
+<p>To show the static nature of Kotlin Serialization let us make the following setup. An <code>open class Project</code> has just the <code>name</code> property, while its derived <code>class OwnedProject</code> adds an <code>owner</code> property. In the below example, we serialize <code>data</code> variable with a static type of <code>Project</code> that is initialized with an instance of <code>OwnedProject</code> at runtime.  </p>
+<p>为了显示 Kotlin 序列化的静态特性，让我们进行以下设置。一个 <code>open class Project</code> 类，只具有 <code>name</code> 属性，而子类 <code>OwnedProject</code> 添加了属性 <code>owner</code> 。在下面的示例中，我们将 <code>data</code> 变量序列化为静态类型的 <code>Project</code>，该类型在运行时被初始化为 <code>OwnedProject</code>的实例。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">open</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-01.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Despite the runtime type of <code>OwnedProject</code>, only the <code>Project</code> class properties are getting serialized.<br />
+尽管运行时类型为 <code>OwnedProject</code> ，但只有 <code>Project</code> 类属性被序列化。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{&quot;name&quot;:&quot;kotlinx.coroutines&quot;}
+</span></code></pre></div>
+<p>Let&rsquo;s change the compile-time type of <code>data</code> to <code>OwnedProject</code>.<br />
+让我们将编译 <code>data</code> 时类型更改为 <code>OwnedProject</code> 。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">open</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-02.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>We get an error, because the <code>OwnedProject</code> class is not serializable.<br />
+我们收到一个错误，因为该 <code>OwnedProject</code> 类不可序列化。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Exception in thread &quot;main&quot; kotlinx.serialization.SerializationException: Serializer for class &#39;OwnedProject&#39; is not found.
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Please ensure that class is marked as &#39;@Serializable&#39; and that the serialization compiler plugin is applied.
+</span></code></pre></div>
+<h3 id="designing-serializable-hierarchy">Designing serializable hierarchy  设计可序列化的层次结构<a class="headerlink" href="#designing-serializable-hierarchy" title="Permanent link">&para;</a></h3>
+<p>We cannot simply mark <code>OwnedProject</code> from the previous example as <code>@Serializable</code>. It does not compile, running into the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md#constructor-properties-requirement">constructor properties requirement</a>. To make hierarchy of classes serializable, the properties in the parent class have to be marked <code>abstract</code>, making the <code>Project</code> class <code>abstract</code>, too.  </p>
+<p>我们不能简单地将上一示例中的 <code>OwnedProject</code> 标记为 <code>@Serializable</code>。它无法编译，会遇到 [构造函数属性要求]。要使类的层次结构可序列化，父类中的属性必须标记为<code>abstract</code>，从而使<code>Project</code>类也成为抽象类。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-03.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>This is close to the best design for a serializable hierarchy of classes, but running it produces the following error:<br />
+这接近于可序列化的类层次结构的最佳设计，但运行它会产生以下错误：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Exception in thread &quot;main&quot; kotlinx.serialization.SerializationException: Serializer for subclass &#39;OwnedProject&#39; is not found in the polymorphic scope of &#39;Project&#39;.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Check if class with serial name &#39;OwnedProject&#39; exists and serializer is registered in a corresponding SerializersModule.
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>To be registered automatically, class &#39;OwnedProject&#39; has to be &#39;@Serializable&#39;, and the base class &#39;Project&#39; has to be sealed and &#39;@Serializable&#39;.
+</span></code></pre></div>
+<h3 id="sealed-classes">Sealed classes 密封类<a class="headerlink" href="#sealed-classes" title="Permanent link">&para;</a></h3>
+<p>The most straightforward way to use serialization with a polymorphic hierarchy is to mark the base class <code>sealed</code>. <em>All</em> subclasses of a sealed class must be explicitly marked as <code>@Serializable</code>.  </p>
+<p>将序列化与多态层次结构一起使用的最直接方法是标记基类为密封类 <code>sealed</code> 。密封类的所有子类都必须显式标记为 <code>@Serializable</code> 。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nd">@Serializable</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="c1">// Serializing data of compile-time type Project</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-04.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Now we can see a default way to represent polymorphism in JSON. A <code>type</code> key is added to the resulting JSON object as a <em>discriminator</em>.  </p>
+<p>现在，我们可以看到在JSON中表示多态性的默认方法。在生成的 JSON 对象中添加了一个type用于区分类型。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>{&quot;type&quot;:&quot;example.examplePoly04.OwnedProject&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<p>Pay attention to the small, but very important detail in the above example that is related to <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#static-types">Static types</a>: the <code>val data</code> property has a compile-time type of <code>Project</code>, even though its run-time type is <code>OwnedProject</code>. When serializing polymorphic class hierarchies you must ensure that the compile-time type of the serialized object is a polymorphic one, not a concrete one.  </p>
+<p>请注意上例中与 [Static types] 有关的一个很小但非常重要的细节：<code>val data</code> 属性的编译时类型是<code>Project</code>，尽管其运行时类型是<code>OwnedProject</code>。在序列化多态类层次结构时，必须确保序列化对象的编译时类型是多态类型，而不是具体类型。 </p>
+<p>Let us see what happens if the example is slightly changed, so that the compile-time of the object that is being serialized is <code>OwnedProject</code> (the same as its run-time type).<br />
+让我们看看如果对示例稍作修改，使被序列化对象的编译时类型为 <code>OwnedProject</code>（与其运行时类型相同），会发生什么情况。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nd">@Serializable</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// data: OwnedProject here</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="c1">// Serializing data of compile-time type OwnedProject</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-05.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>The type of <code>OwnedProject</code> is concrete and is not polymorphic, thus the <code>type</code> discriminator property is not emitted into the resulting JSON.<br />
+的 <code>OwnedProject</code> 类型是具体的，不是多态的，因此 <code>type</code>属性不会添加到生成的 JSON 中。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>{&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<p>In general, Kotlin Serialization is designed to work correctly only when the compile-time type used during serialization is the same one as the compile-time type used during deserialization. You can always specify the type explicitly when calling serialization functions. The previous example can be corrected to use <code>Project</code> type for serialization by calling <code>Json.encodeToString&lt;Project&gt;(data)</code>.<br />
+一般来说，只有当序列化过程中使用的编译时类型与反序列化过程中使用的编译时类型相同时，Kotlin 序列化才能正常工作。您可以在调用序列化函数时明确指定类型。可以通过调用 <code>Json.encodeToString&lt;Project&gt;(data)</code>，将上例更正为使用 <code>Project</code> 类型进行序列化。 </p>
+<h3 id="custom-subclass-serial-name">Custom subclass serial name  自定义子类序列化名称<a class="headerlink" href="#custom-subclass-serial-name" title="Permanent link">&para;</a></h3>
+<p>A value of the <code>type</code> key is a fully qualified class name by default. We can put <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serial-name/index.html">SerialName</a> annotation onto the corresponding class to change it.  </p>
+<p>默认情况下， <code>type</code> 键的值是完全限定的类名。我们可以将 SerialName 注解放在相应的类上以更改它。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nd">@Serializable</span><span class="w">         </span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;owned&quot;</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-06.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>This way we can have a stable <em>serial name</em> that is not affected by the class&rsquo;s name in the source code.<br />
+这样，我们就可以拥有一个稳定的序列化名称，不受源代码中类名的影响。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>{&quot;type&quot;:&quot;owned&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<blockquote>
+<p>In addition to that, JSON can be configured to use a different key name for the class discriminator. You can find an example in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#class-discriminator-for-polymorphism">Class discriminator for polymorphism</a> section.<br />
+除此之外，还可以将 JSON 配置为对类鉴别器使用不同的键名。您可以在多态性的类鉴别器部分找到一个示例。</p>
+</blockquote>
+<h3 id="concrete-properties-in-a-base-class">Concrete properties in a base class  基类中的具体属性<a class="headerlink" href="#concrete-properties-in-a-base-class" title="Permanent link">&para;</a></h3>
+<p>A base class in a sealed hierarchy can have properties with backing fields.<br />
+密封层次结构中的基类可以有带支持字段的属性（有getter和setter）。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w">   </span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;open&quot;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">}</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nd">@Serializable</span><span class="w">   </span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;owned&quot;</span><span class="p">)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">encodeDefaults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// &quot;status&quot; will be skipped otherwise</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-07.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>The properties of the superclass are serialized before the properties of the subclass.<br />
+超类的属性在子类的属性之前序列化。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>{&quot;type&quot;:&quot;owned&quot;,&quot;status&quot;:&quot;open&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<h3 id="objects-object">Objects  object类<a class="headerlink" href="#objects-object" title="Permanent link">&para;</a></h3>
+<p>Sealed hierarchies can have objects as their subclasses and they also need to be marked as <code>@Serializable</code>. Let&rsquo;s take a different example with a hierarchy of <code>Response</code> classes.<br />
+密封层次结构可以将object类作为其子类，并且还需要将它们标记为 <code>@Serializable</code> 。让我们用一个不同的例子来说明 <code>Response</code> 类的层次结构。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Response</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nd">@Serializable</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kd">object</span><span class="w"> </span><span class="nc">EmptyResponse</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="p">()</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="nd">@Serializable</span><span class="w">   </span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TextResponse</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">text</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="p">()</span><span class="w">   </span>
+</span></code></pre></div>
+<p>Let us serialize a list of different responses.<br />
+让我们序列化一个不同response类的list。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="n">EmptyResponse</span><span class="p">,</span><span class="w"> </span><span class="n">TextResponse</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">))</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">list</span><span class="p">))</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-08.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>An object serializes as an empty class, also using its fully-qualified class name as type by default:<br />
+对象序列化为空类，默认情况下也使用其完全限定的类名作为类型：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[{&quot;type&quot;:&quot;example.examplePoly08.EmptyResponse&quot;},{&quot;type&quot;:&quot;example.examplePoly08.TextResponse&quot;,&quot;text&quot;:&quot;OK&quot;}]
+</span></code></pre></div>
+<blockquote>
+<p>Even if object has properties, they are not serialized.<br />
+即使对象具有属性，它们也不会序列化。</p>
+</blockquote>
+<h2 id="open-polymorphism">Open polymorphism 开放多态性<a class="headerlink" href="#open-polymorphism" title="Permanent link">&para;</a></h2>
+<p>Serialization can work with arbitrary <code>open</code> classes or <code>abstract</code> classes. However, since this kind of polymorphism is open, there is a possibility that subclasses are defined anywhere in the source code, even in other modules, the list of subclasses that are serialized cannot be determined at compile-time and must be explicitly registered at runtime.<br />
+序列化可以处理任意的 &ldquo;开放 &ldquo;类或 &ldquo;抽象 &ldquo;类。但是，由于这种多态性是开放的，因此有可能在源代码的任何地方，甚至在其他模块中定义了子类，因此序列化的子类列表无法在编译时确定，必须在运行时显式注册。 </p>
+<h3 id="registered-subclasses">Registered subclasses 已注册的子类<a class="headerlink" href="#registered-subclasses" title="Permanent link">&para;</a></h3>
+<p>Let us start with the code from the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#designing-serializable-hierarchy">Designing serializable hierarchy</a> section. To make it work with serialization without making it <code>sealed</code>, we have to define a <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module/index.html">SerializersModule</a> using the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module.html">SerializersModule {}</a> builder function. In the module the base class is specified in the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/polymorphic.html">polymorphic</a> builder and each subclass is registered with the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/subclass.html">subclass</a> function. Now, a custom JSON configuration can be instantiated with this module and used for serialization.  </p>
+<p>让我们从设计可序列化层次结构部分的代码开始。为了在不密封的情况下实现序列化，我们必须使用序列化模块（SerializersModule {} builder）函数定义一个序列化模块（SerializersModule）。在该模块中，基类是在多态生成器中指定的，每个子类都是通过子类函数注册的。现在，自定义 JSON 配置可以通过该模块实例化并用于序列化。</p>
+<blockquote>
+<p>Details on custom JSON configurations can be found in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-configuration">JSON configuration</a> section.<br />
+有关自定义 JSON 配置的详细信息，请参阅 JSON 配置部分。</p>
+</blockquote>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Project</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OwnedProject</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">}</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="kd">val</span><span class="w"> </span><span class="nv">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="nd">@Serializable</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="p">}</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="nd">@Serializable</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;owned&quot;</span><span class="p">)</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="p">}</span><span class="w">    </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-09.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>This additional configuration makes our code work just as it worked with a sealed class in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#sealed-classes">Sealed classes</a> section, but here subclasses can be spread arbitrarily throughout the code.<br />
+这种额外的配置使我们的代码就像在“密封类”部分中使用密封类一样工作，但在这里，子类可以任意分布在任意位置。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>{&quot;type&quot;:&quot;owned&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<blockquote>
+<p>Please note that this example works only on JVM because of <code>serializer</code> function restrictions. For JS and Native, explicit serializer should be used: <code>format.encodeToString(PolymorphicSerializer(Project::class), data)</code> You can keep track of this issue <a href="https://github.com/Kotlin/kotlinx.serialization/issues/1077">here</a>.<br />
+请注意，由于 <code>serializer</code> 功能限制，此示例仅适用于 JVM。对于 JS 和 Native，应使用显式序列化程序： <code>format.encodeToString(PolymorphicSerializer(Project::class), data)</code> 您可以在此处跟踪此问题。</p>
+</blockquote>
+<h3 id="serializing-interfaces">Serializing interfaces 序列化接口<a class="headerlink" href="#serializing-interfaces" title="Permanent link">&para;</a></h3>
+<p>We can update the previous example and turn <code>Project</code> superclass into an interface. However, we cannot mark an interface itself as <code>@Serializable</code>. No problem. Interfaces cannot have instances by themselves. Interfaces can only be represented by instances of their derived classes. Interfaces are used in the Kotlin language to enable polymorphism, so all interfaces are considered to be implicitly serializable with the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-polymorphic-serializer/index.html">PolymorphicSerializer</a> strategy. We just need to mark their implementing classes as <code>@Serializable</code> and register them.  </p>
+<p>我们可以更新前面的示例，将 <code>Project</code> 超类变成一个接口。但是，我们不能将接口本身标记为 <code>@Serializable</code>。没问题。接口本身不能拥有实例。接口只能由其派生类的实例来表示。Kotlin 语言中使用接口来实现多态性，因此使用 [PolymorphicSerializer] 策略，所有接口都被认为是隐式可序列化的。我们只需将它们的实现类标记为 <code>@Serializable</code> 并注册即可。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">interface</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">}</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nd">@Serializable</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;owned&quot;</span><span class="p">)</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span>
+</span></code></pre></div>
+<p>Now if we declare <code>data</code> with the type of <code>Project</code> we can simply call <code>format.encodeToString</code> as before.<br />
+现在，如果我们以 <code>Project</code> 类型声明 <code>data</code> ，就可以像以前一样简单地调用 <code>format.encodeToString</code>。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">}</span><span class="w">    </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-10.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>{&quot;type&quot;:&quot;owned&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<blockquote>
+<p>Note: On Kotlin/Native, you should use <code>format.encodeToString(PolymorphicSerializer(Project::class), data))</code> instead due to limited reflection capabilities.<br />
+注意：在 Kotlin/Native 上，由于反射功能有限，您应该改用 <code>format.encodeToString(PolymorphicSerializer(Project::class), data))</code> 。</p>
+</blockquote>
+<h3 id="property-of-an-interface-type">Property of an interface type  接口类型的属性<a class="headerlink" href="#property-of-an-interface-type" title="Permanent link">&para;</a></h3>
+<p>Continuing the previous example, let us see what happens if we use <code>Project</code> interface as a property in some other serializable class. Interfaces are implicitly polymorphic, so we can just declare a property of an interface type.<br />
+继续前面的例子，让我们看看如果把 <code>Project</code> 接口作为其他可序列化类的属性会发生什么。接口是隐式多态的，因此我们可以直接声明一个接口类型的属性。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Data</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">project</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">)</span><span class="w"> </span><span class="c1">// Project is an interface</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">))</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="p">}</span><span class="w">        </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-11.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>As long as we&rsquo;ve registered the actual subtype of the interface that is being serialized in the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module/index.html">SerializersModule</a> of our <code>format</code>, we get it working at runtime.  </p>
+<p>只要我们在 <code>format</code> SerializersModule 中注册了正在序列化的接口的实际子类型，我们就可以让它在运行时工作。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>{&quot;project&quot;:{&quot;type&quot;:&quot;owned&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}}
+</span></code></pre></div>
+<h3 id="static-parent-type-lookup-for-polymorphism">Static parent type lookup for polymorphism  多态性的静态父类型查找<a class="headerlink" href="#static-parent-type-lookup-for-polymorphism" title="Permanent link">&para;</a></h3>
+<p>During serialization of a polymorphic class the root type of the polymorphic hierarchy (<code>Project</code> in our example) is determined statically. Let us take the example with the serializable <code>abstract class Project</code>, but change the <code>main</code> function to declare <code>data</code> as having a type of <code>Any</code>:  </p>
+<p>在多态类的序列化过程中，多态层次结构的根类型（在我们的示例中为 <code>Project</code>）是静态确定的。让我们以可序列化的 &ldquo;抽象类 Project &ldquo;为例，改变 &ldquo;main &ldquo;函数，将 &ldquo;data &ldquo;声明为 &ldquo;Any &ldquo;类型：  </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">}</span><span class="w">    </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-12.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>We get the exception.<br />
+我们得到了异常。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Exception in thread &quot;main&quot; kotlinx.serialization.SerializationException: Serializer for class &#39;Any&#39; is not found.
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Please ensure that class is marked as &#39;@Serializable&#39; and that the serialization compiler plugin is applied.
+</span></code></pre></div>
+<p>We have to register classes for polymorphic serialization with respect for the corresponding static type we use in the source code. First of all, we change our module to register a subclass of <code>Any</code>:<br />
+我们必须针对源代码中使用的相应静态类型注册多态序列化类。首先，我们更改模块，注册一个 <code>Any</code> 的子类：  </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OwnedProject</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Then we can try to serialize the variable of type <code>Any</code>:<br />
+然后，我们就可以尝试序列化 <code>Any</code> 类型的变量了：</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">}</span><span class="w">    </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-13.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>However, <code>Any</code> is a class and it is not serializable:<br />
+然而，虽然Any是一个类， 但它不可序列化：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Exception in thread &quot;main&quot; kotlinx.serialization.SerializationException: Serializer for class &#39;Any&#39; is not found.
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Please ensure that class is marked as &#39;@Serializable&#39; and that the serialization compiler plugin is applied.
+</span></code></pre></div>
+<p>We must to explicitly pass an instance of <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-polymorphic-serializer/index.html">PolymorphicSerializer</a> for the base class <code>Any</code> as the first parameter to the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json/encode-to-string.html">encodeToString</a> function. </p>
+<p>我们必须将基类 <code>Any</code> 的 PolymorphicSerializer 实例显式传递给 encodeToString 函数的第一个参数。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">PolymorphicSerializer</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="p">}</span><span class="w">    </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-14.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>With the explicit serializer it works as before.<br />
+使用显式序列化程序，它的工作方式与以前一样。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>{&quot;type&quot;:&quot;owned&quot;,&quot;name&quot;:&quot;kotlinx.coroutines&quot;,&quot;owner&quot;:&quot;kotlin&quot;}
+</span></code></pre></div>
+<h3 id="explicitly-marking-polymorphic-class-properties">Explicitly marking polymorphic class properties  显式标记多态类属性<a class="headerlink" href="#explicitly-marking-polymorphic-class-properties" title="Permanent link">&para;</a></h3>
+<p>The property of an interface type is implicitly considered polymorphic, since interfaces are all about runtime polymorphism. However, Kotlin Serialization does not compile a serializable class with a property of a non-serializable class type. If we have a property of <code>Any</code> class or other non-serializable class, then we must explicitly provide its serialization strategy via the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/index.html"><code>@Serializable</code></a> annotation as we saw in the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#specifying-serializer-on-a-property">Specifying serializer on a property</a> section. To specify a polymorphic serialization strategy of a property, the special-purpose <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-polymorphic/index.html"><code>@Polymorphic</code></a> annotation is used.<br />
+接口类型的属性被隐含地认为是多态的，因为接口就是关于运行时多态性的。但是，Kotlin 序列化不会编译带有不可序列化类类型属性的可序列化类。如果我们有一个 Any 类或其他不可序列化类的属性，那么我们必须通过 @Serializable 注解显式地提供其序列化策略，正如我们在 &ldquo;在属性上指定序列化器 &ldquo;一节中所看到的那样。要指定一个属性的多态序列化策略，需要使用特殊用途的 @Polymorphic 注解。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Data</span><span class="p">(</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="nd">@Polymorphic</span><span class="w"> </span><span class="c1">// the code does not compile without it </span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">project</span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="p">)</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">))</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-15.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<h3 id="registering-multiple-superclasses">Registering multiple superclasses  注册多个超类<a class="headerlink" href="#registering-multiple-superclasses" title="Permanent link">&para;</a></h3>
+<p>When the same class gets serialized as a value of properties with different compile-time type from the list of its superclasses, we must register it in the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module/index.html">SerializersModule</a> for each of its superclasses separately. It is convenient to extract registration of all the subclasses into a separate function and use it for each superclass. You can use the following template to write it.  </p>
+<p>当同一个类被序列化为其超类列表中编译时类型不同的属性值时，我们必须在 [SerializersModule] 中为每个超类分别注册。将所有子类的注册提取到一个单独的函数中并用于每个超类是很方便的。你可以使用下面的模板来编写它。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">PolymorphicModuleBuilder</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="p">.</span><span class="na">registerProjectSubclasses</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OwnedProject</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">registerProjectSubclasses</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Project</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">registerProjectSubclasses</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="p">}</span><span class="w">        </span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-16.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<h3 id="polymorphism-and-generic-classes">Polymorphism and generic classes  多态性和泛型类<a class="headerlink" href="#polymorphism-and-generic-classes" title="Permanent link">&para;</a></h3>
+<p>Generic subtypes for a serializable class require a special handling. Consider the following hierarchy.<br />
+可序列化类的泛型子类型需要特殊处理。请考虑以下层次结构。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Response</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="nd">@Serializable</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;OkResponse&quot;</span><span class="p">)</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">OkResponse</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Kotlin Serialization does not have a builtin strategy to represent the actually provided argument type for the type parameter <code>T</code> when serializing a property of the polymorphic type <code>OkResponse&lt;T&gt;</code>. We have to provide this strategy explicitly when defining the serializers module for the <code>Response</code>. In the below example we use <code>OkResponse.serializer(...)</code> to retrieve the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#plugin-generated-generic-serializer">Plugin-generated generic serializer</a> of the <code>OkResponse</code> class and instantiate it with the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-polymorphic-serializer/index.html">PolymorphicSerializer</a> instance with <code>Any</code> class as its base. This way, we can serialize an instance of <code>OkResponse</code> with any <code>data</code> property that was polymorphically registered as a subtype of <code>Any</code>.  </p>
+<p>在序列化多态类型 OkResponse<T> 的属性时，Kotlin 序列化没有内置策略来表示类型参数 T 实际提供的参数类型。我们必须在为 Response 定义序列化模块时明确提供这一策略。在下面的示例中，我们使用 OkResponse.serializer(&hellip;)来获取由插件生成的 OkResponse 类的通用序列化器，并将其与以 Any 类为基类的 PolymorphicSerializer 实例进行实例化。这样，我们就可以序列化 OkResponse 实例的任何数据属性，这些数据属性已被多态注册为 Any 的子类型。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">responseModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Response</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OkResponse</span><span class="p">.</span><span class="na">serializer</span><span class="p">(</span><span class="n">PolymorphicSerializer</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)))</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="merging-library-serializers-modules">Merging library serializers modules  合并库序列化程序模块<a class="headerlink" href="#merging-library-serializers-modules" title="Permanent link">&para;</a></h3>
+<p>When the application grows in size and splits into source code modules, it may become inconvenient to store all class hierarchies in one serializers module. Let us add a library with the <code>Project</code> hierarchy to the code from the previous section.  </p>
+<p>当应用程序规模扩大并分割成多个源代码模块时，将所有类的层次结构存储在一个序列化模块中可能会变得不方便。让我们在上一节的代码中添加一个具有 <code>Project</code> 层次结构的库。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">projectModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">PolymorphicModuleBuilder</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="p">.</span><span class="na">registerProjectSubclasses</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OwnedProject</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">registerProjectSubclasses</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Project</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">registerProjectSubclasses</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>We can compose those two modules together using the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/plus.html">plus</a> operator to merge them, so that we can use them both in the same <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json/index.html">Json</a> format instance.  </p>
+<p>我们可以使用 plus 运算符将这两个模块组合在一起以合并它们，以便我们可以在同一个 Json 格式实例中使用它们。</p>
+<blockquote>
+<p>You can also use the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module-builder/include.html">include</a> function in the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module.html">SerializersModule {}</a> DSL.<br />
+还可以在 SerializersModule {} DSL 中使用 include 函数。</p>
+</blockquote>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">projectModule</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">responseModule</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>Now classes from both hierarchies can be serialized together and deserialized together.<br />
+现在，两个层次结构中的类可以一起序列化和反序列化。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="c1">// both Response and Project are abstract and their concrete subtypes are being serialized</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">OkResponse</span><span class="p">(</span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.serialization&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">))</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">Response</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-17.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>The JSON that is being produced is deeply polymorphic.<br />
+正在生成的 JSON 是深度多态的。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>{&quot;type&quot;:&quot;OkResponse&quot;,&quot;data&quot;:{&quot;type&quot;:&quot;OwnedProject&quot;,&quot;name&quot;:&quot;kotlinx.serialization&quot;,&quot;owner&quot;:&quot;kotlin&quot;}}
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>OkResponse(data=OwnedProject(name=kotlinx.serialization, owner=kotlin))
+</span></code></pre></div>
+<p>If you&rsquo;re writing a library or shared module with an abstract class and some implementations of it, you can expose your own serializers module for your clients to use so that a client can combine your module with their modules.<br />
+如果要编写包含抽象类及其某些实现的库或共享模块，则可以公开自己的序列化程序模块供客户端使用，以便客户端可以将模块与其模块组合在一起。</p>
+<h3 id="default-polymorphic-type-handler-for-deserialization">Default polymorphic type handler for deserialization  用于反序列化的默认多态类型处理程序<a class="headerlink" href="#default-polymorphic-type-handler-for-deserialization" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#default-polymorphic-type-handler-for-deserialization"></a></p>
+<p>What happens when we deserialize a subclass that was not registered?<br />
+当我们反序列化未注册的子类时会发生什么？</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="s">        {&quot;type&quot;:&quot;unknown&quot;,&quot;name&quot;:&quot;example&quot;}</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="s">    &quot;&quot;&quot;</span><span class="p">))</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-18.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>We get the following exception.<br />
+我们得到以下异常。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Exception in thread &quot;main&quot; kotlinx.serialization.json.internal.JsonDecodingException: Unexpected JSON token at offset 0: Serializer for subclass &#39;unknown&#39; is not found in the polymorphic scope of &#39;Project&#39; at path: $
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>Check if class with serial name &#39;unknown&#39; exists and serializer is registered in a corresponding SerializersModule.
+</span></code></pre></div>
+<p>When reading a flexible input we might want to provide some default behavior in this case. For example, we can have a <code>BasicProject</code> subtype to represent all kinds of unknown <code>Project</code> subtypes.<br />
+在这种情况下，在读取灵活输入时，我们可能希望提供一些默认行为。例如，我们可以有一个 <code>BasicProject</code> 子类型来表示各种未知 <code>Project</code> 的子类型。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="p">}</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="nd">@Serializable</span>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">BasicProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">type</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="nd">@Serializable</span>
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;OwnedProject&quot;</span><span class="p">)</span>
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span></code></pre></div>
+<p>We register a default deserializer handler using the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-polymorphic-module-builder/default-deserializer.html"><code>defaultDeserializer</code></a> function in the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-polymorphic-module-builder/index.html"><code>polymorphic { ... }</code></a> DSL that defines a strategy which maps the <code>type</code> string from the input to the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-deserialization-strategy/index.html">deserialization strategy</a>. In the below example we don&rsquo;t use the type, but always return the <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#plugin-generated-serializer">Plugin-generated serializer</a> of the <code>BasicProject</code> class.<br />
+我们使用 <code>polymorphic { ... }</code> DSL 中的 <code>defaultDeserializer</code> 函数注册一个默认的反序列化程序处理程序，该函数定义了一个策略，该策略将 <code>type</code> 字符串从输入映射到反序列化策略。在下面的示例中，我们没有使用类型，而是始终返回由插件生成的 BasicProject 类的序列化器。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Project</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OwnedProject</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">        </span><span class="n">defaultDeserializer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">BasicProject</span><span class="p">.</span><span class="na">serializer</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Using this module we can now deserialize both instances of the registered <code>OwnedProject</code> and any unregistered one.<br />
+使用此模块，我们现在可以反序列化已注册 <code>OwnedProject</code> 和任何未注册的实例。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="s">        [</span>
+</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="s">            {&quot;type&quot;:&quot;unknown&quot;,&quot;name&quot;:&quot;example&quot;},</span>
+</span><span id="__span-43-7"><a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="s">            {&quot;type&quot;:&quot;OwnedProject&quot;,&quot;name&quot;:&quot;kotlinx.serialization&quot;,&quot;owner&quot;:&quot;kotlin&quot;} </span>
+</span><span id="__span-43-8"><a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="s">        ]</span>
+</span><span id="__span-43-9"><a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="s">    &quot;&quot;&quot;</span><span class="p">))</span>
+</span><span id="__span-43-10"><a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-19.kt">here</a>.<br />
+您可以在此处获取完整代码。</p>
+</blockquote>
+<p>Notice, how <code>BasicProject</code> had also captured the specified type key in its <code>type</code> property.<br />
+请注意，如何 <code>BasicProject</code> 在其 <code>type</code> 属性中捕获指定的类型键。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>[BasicProject(name=example, type=unknown), OwnedProject(name=kotlinx.serialization, owner=kotlin)]
+</span></code></pre></div>
+<p>We used a plugin-generated serializer as a default serializer, implying that the structure of the &ldquo;unknown&rdquo; data is known in advance. In a real-world API it&rsquo;s rarely the case. For that purpose a custom, less-structured serializer is needed. You will see the example of such serializer in the future section on <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#maintaining-custom-json-attributes">Maintaining custom JSON attributes</a>.<br />
+我们使用插件生成的序列化器作为默认序列化器，这意味着 &ldquo;未知 &ldquo;数据的结构是事先已知的。在现实世界的应用程序接口中，这种情况很少发生。为此，我们需要一个自定义的、结构不那么复杂的序列化器。您将在以后的维护自定义 JSON 属性一节中看到这种序列化器的示例。</p>
+<h3 id="default-polymorphic-type-handler-for-serialization">Default polymorphic type handler for serialization<a class="headerlink" href="#default-polymorphic-type-handler-for-serialization" title="Permanent link">&para;</a></h3>
+<p>用于序列化的默认多态类型处理程序</p>
+<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#default-polymorphic-type-handler-for-serialization"></a></p>
+<p>Sometimes you need to dynamically choose which serializer to use for a polymorphic type based on the instance, for example if you don&rsquo;t have access to the full type hierarchy, or if it changes a lot. For this situation, you can register a default serializer.<br />
+例如，如果无法访问完整的类型层次结构，或者类型变化很大，有时需要根据实例动态选择多态类型的序列化器。在这种情况下，可以注册一个默认序列化器。 </p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kd">interface</span><span class="w"> </span><span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="p">}</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="kd">interface</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">catType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="p">}</span>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="kd">interface</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">dogType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+</span><span id="__span-45-10"><a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="p">}</span>
+</span><span id="__span-45-11"><a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>
+</span><span id="__span-45-12"><a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a><span class="kd">private</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">CatImpl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-13"><a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">catType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tabby&quot;</span>
+</span><span id="__span-45-14"><a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a><span class="p">}</span>
+</span><span id="__span-45-15"><a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a>
+</span><span id="__span-45-16"><a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="kd">private</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">DogImpl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-17"><a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">dogType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Husky&quot;</span>
+</span><span id="__span-45-18"><a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="p">}</span>
+</span><span id="__span-45-19"><a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>
+</span><span id="__span-45-20"><a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a><span class="kd">object</span><span class="w"> </span><span class="nc">AnimalProvider</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-21"><a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">createCat</span><span class="p">():</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CatImpl</span><span class="p">()</span>
+</span><span id="__span-45-22"><a id="__codelineno-45-22" name="__codelineno-45-22" href="#__codelineno-45-22"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">createDog</span><span class="p">():</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DogImpl</span><span class="p">()</span>
+</span><span id="__span-45-23"><a id="__codelineno-45-23" name="__codelineno-45-23" href="#__codelineno-45-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>We register a default serializer handler using the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module-builder/polymorphic-default-serializer.html"><code>polymorphicDefaultSerializer</code></a> function in the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.modules/-serializers-module-builder/index.html"><code>SerializersModule { ... }</code></a> DSL that defines a strategy which takes an instance of the base class and provides a <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serialization-strategy/index.html">serialization strategy</a>. In the below example we use a <code>when</code> block to check the type of the instance, without ever having to refer to the private implementation classes.  </p>
+<p>我们使用 <code>SerializersModule { ... }</code> DSL 中的 <code>polymorphicDefaultSerializer</code> 函数注册一个默认的序列化程序处理程序，该函数定义了一个策略，该策略采用基类的实例并提供序列化策略。在下面的示例中，我们使用一个 <code>when</code> 块来检查实例的类型，而无需引用私有实现类。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">    </span><span class="n">polymorphicDefaultSerializer</span><span class="p">(</span><span class="n">Animal</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">-&gt;</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">        </span><span class="nd">@Suppress</span><span class="p">(</span><span class="s">&quot;UNCHECKED_CAST&quot;</span><span class="p">)</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Cat</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CatSerializer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SerializationStrategy</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span>
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">DogSerializer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SerializationStrategy</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span>
+</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-46-10"><a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="p">}</span>
+</span><span id="__span-46-11"><a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a>
+</span><span id="__span-46-12"><a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="kd">object</span><span class="w"> </span><span class="nc">CatSerializer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">SerializationStrategy</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-13"><a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">descriptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildClassSerialDescriptor</span><span class="p">(</span><span class="s">&quot;Cat&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-14"><a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a><span class="w">        </span><span class="n">element</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;catType&quot;</span><span class="p">)</span>
+</span><span id="__span-46-15"><a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-46-16"><a id="__codelineno-46-16" name="__codelineno-46-16" href="#__codelineno-46-16"></a>
+</span><span id="__span-46-17"><a id="__codelineno-46-17" name="__codelineno-46-17" href="#__codelineno-46-17"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">encoder</span><span class="p">:</span><span class="w"> </span><span class="n">Encoder</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">Cat</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-18"><a id="__codelineno-46-18" name="__codelineno-46-18" href="#__codelineno-46-18"></a><span class="w">        </span><span class="n">encoder</span><span class="p">.</span><span class="na">encodeStructure</span><span class="p">(</span><span class="n">descriptor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-19"><a id="__codelineno-46-19" name="__codelineno-46-19" href="#__codelineno-46-19"></a><span class="w">          </span><span class="n">encodeStringElement</span><span class="p">(</span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="na">catType</span><span class="p">)</span>
+</span><span id="__span-46-20"><a id="__codelineno-46-20" name="__codelineno-46-20" href="#__codelineno-46-20"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-46-21"><a id="__codelineno-46-21" name="__codelineno-46-21" href="#__codelineno-46-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-46-22"><a id="__codelineno-46-22" name="__codelineno-46-22" href="#__codelineno-46-22"></a><span class="p">}</span>
+</span><span id="__span-46-23"><a id="__codelineno-46-23" name="__codelineno-46-23" href="#__codelineno-46-23"></a>
+</span><span id="__span-46-24"><a id="__codelineno-46-24" name="__codelineno-46-24" href="#__codelineno-46-24"></a><span class="kd">object</span><span class="w"> </span><span class="nc">DogSerializer</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">SerializationStrategy</span><span class="o">&lt;</span><span class="n">Dog</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-25"><a id="__codelineno-46-25" name="__codelineno-46-25" href="#__codelineno-46-25"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">descriptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildClassSerialDescriptor</span><span class="p">(</span><span class="s">&quot;Dog&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-26"><a id="__codelineno-46-26" name="__codelineno-46-26" href="#__codelineno-46-26"></a><span class="w">    </span><span class="n">element</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;dogType&quot;</span><span class="p">)</span>
+</span><span id="__span-46-27"><a id="__codelineno-46-27" name="__codelineno-46-27" href="#__codelineno-46-27"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-46-28"><a id="__codelineno-46-28" name="__codelineno-46-28" href="#__codelineno-46-28"></a>
+</span><span id="__span-46-29"><a id="__codelineno-46-29" name="__codelineno-46-29" href="#__codelineno-46-29"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">encoder</span><span class="p">:</span><span class="w"> </span><span class="n">Encoder</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-30"><a id="__codelineno-46-30" name="__codelineno-46-30" href="#__codelineno-46-30"></a><span class="w">    </span><span class="n">encoder</span><span class="p">.</span><span class="na">encodeStructure</span><span class="p">(</span><span class="n">descriptor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-31"><a id="__codelineno-46-31" name="__codelineno-46-31" href="#__codelineno-46-31"></a><span class="w">      </span><span class="n">encodeStringElement</span><span class="p">(</span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="na">dogType</span><span class="p">)</span>
+</span><span id="__span-46-32"><a id="__codelineno-46-32" name="__codelineno-46-32" href="#__codelineno-46-32"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-46-33"><a id="__codelineno-46-33" name="__codelineno-46-33" href="#__codelineno-46-33"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-46-34"><a id="__codelineno-46-34" name="__codelineno-46-34" href="#__codelineno-46-34"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Using this module we can now serialize instances of <code>Cat</code> and <code>Dog</code>.<br />
+使用此模块，我们现在可以序列化 <code>Cat</code> 和 <code>Dog</code> 的实例。</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="na">encodeToString</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span><span class="p">(</span><span class="n">AnimalProvider</span><span class="p">.</span><span class="na">createCat</span><span class="p">()))</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>You can get the full code <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/guide/example/example-poly-20.kt">here</a><br />
+您可以在此处获取完整代码</p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>{&quot;type&quot;:&quot;Cat&quot;,&quot;catType&quot;:&quot;Tabby&quot;}
+</span></code></pre></div>
+<hr />
+<p>The next chapter covers <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md">JSON features</a>.<br />
+下一章将介绍 JSON 功能。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E5%BA%8F%E5%88%97%E5%8C%96%E7%A8%8B%E5%BA%8F-3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Serializers 序列化程序">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Serializers 序列化程序
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../JSON%E7%89%B9%E6%80%A7-5/" class="md-footer__link md-footer__link--next" aria-label="下一页: JSON features JSON 功能">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                JSON features JSON 功能
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - 2024 knightwood
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.prune", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>
