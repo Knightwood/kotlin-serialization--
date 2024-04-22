@@ -1,0 +1,68 @@
+site_name: kotlin序列化中文文档
+site_description: kotlin序列化中文文档
+repo_url: https://github.com/Knightwood/kotlin-serialization-docs
+
+site_author: knightwood
+copyright: Copyright &copy; 2018 - 2024 knightwood
+repo_name: GitHub
+docs_dir: 'docs'
+
+theme:
+#  name: bootstrap386
+  name: material
+  language: zh
+  features:
+    - navigation.top
+    - navigation.prune
+    - navigation.footer
+    - navigation.instant
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+plugins:
+#  - offline
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      lang:
+        - en
+        - zh
+
+markdown_extensions:
+  - smarty
+  - toc:
+      permalink: true
+  - footnotes
+  - tables
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - def_list
+  - md_in_html
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+nav:
+  - 简单使用 : index.md
+  - 目录-0.md
+  - 基本序列化-1.md
+  - 内置类-2.md
+  - 序列化程序-3.md
+  - 多态性-4.md
+  - JSON特性-5.md
+  - 替代格式和自定义格式（实验性）-6.md
+  - 附录 A. 序列化和值类（仅限 IR）.md
