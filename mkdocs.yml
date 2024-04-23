@@ -57,8 +57,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
 nav:
-  - 简单使用 : index.md
-  - 目录-0.md
+  - 简单入门使用文档 : index.md
+  # - 序列化指南目录 : 目录-0.md
   - 基本序列化-1.md
   - 内置类-2.md
   - 序列化程序-3.md
