@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="%E7%9B%AE%E5%BD%95-0/">
+        <link rel="next" href="%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              简单使用
+              简单入门使用文档
             
           </span>
         </div>
@@ -235,7 +235,7 @@
           
   
   <span class="md-ellipsis">
-    简单使用
+    简单入门使用文档
   </span>
   
 
@@ -246,7 +246,7 @@
         
   
   <span class="md-ellipsis">
-    简单使用
+    简单入门使用文档
   </span>
   
 
@@ -271,6 +271,48 @@
       基本用法
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="基本用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.引入依赖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.定义可序列化类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.配置序列化器（可选）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3jsonutil" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.使用上面定义的jsonUtil序列化和反序列化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -316,6 +358,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      序列化第三方类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="序列化第三方类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      首先定义这个类如何序列化和反序列化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式1：手动传递
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式2：在属性上指定序列化程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      备用 Json 名称
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -331,31 +424,11 @@
   
   
     <li class="md-nav__item">
-      <a href="%E7%9B%AE%E5%BD%95-0/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Kotlin Serialization Guide
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Basic Serialization 基本序列化
+    序列化的基本使用
   </span>
   
 
@@ -375,7 +448,7 @@
         
   
   <span class="md-ellipsis">
-    Builtin classes 内置类
+    内置类
   </span>
   
 
@@ -395,7 +468,7 @@
         
   
   <span class="md-ellipsis">
-    Serializers 序列化程序
+    序列化程序
   </span>
   
 
@@ -415,7 +488,7 @@
         
   
   <span class="md-ellipsis">
-    Polymorphism 多态性
+    多态性
   </span>
   
 
@@ -435,7 +508,7 @@
         
   
   <span class="md-ellipsis">
-    JSON features JSON 功能
+    配置Json序列化器功能
   </span>
   
 
@@ -455,7 +528,7 @@
         
   
   <span class="md-ellipsis">
-    Alternative and custom formats (experimental)
+    替代格式和自定义格式（实验性）
   </span>
   
 
@@ -475,7 +548,7 @@
         
   
   <span class="md-ellipsis">
-    Serialization and value classes (IR-specific)
+    序列化和值类（特定于 IR）
   </span>
   
 
@@ -515,6 +588,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="基本用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.引入依赖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.定义可序列化类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.配置序列化器（可选）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3jsonutil" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.使用上面定义的jsonUtil序列化和反序列化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -559,6 +674,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      序列化第三方类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="序列化第三方类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      首先定义这个类如何序列化和反序列化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式1：手动传递
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式2：在属性上指定序列化程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      备用 Json 名称
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -577,17 +743,88 @@
   
 
 
-  <h1>简单使用</h1>
+  <h1>简单入门使用文档</h1>
 
+<p>当前翻译版本，英文文档最后一次改动：<a href="https://github.com/Kotlin/kotlinx.serialization/commit/5b28d33ab2d2e930db007a76b7ad91a2344c1445">5b28d33</a></p>
+<table>
+<thead>
+<tr>
+<th>kotlinx-serialization-json版本</th>
+<th>默认使用kotlin版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.4.1</td>
+<td>1.7.20</td>
+</tr>
+<tr>
+<td>1.5.0</td>
+<td>1.8.10</td>
+</tr>
+<tr>
+<td>1.5.1</td>
+<td>1.8.21</td>
+</tr>
+<tr>
+<td>1.6.0</td>
+<td>1.9.0，1.9.10</td>
+</tr>
+<tr>
+<td>1.6.1</td>
+<td>1.9.20，1.9.21</td>
+</tr>
+<tr>
+<td>1.6.3</td>
+<td>1.9.22</td>
+</tr>
+</tbody>
+</table>
 <h2 id="_1">基本用法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>1.定义可序列化类，只要类中的字段具有setter和getter，就可以序列化。例如：</p>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Serializable</span><span class="w">  </span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Test</span><span class="p">(</span><span class="w">  </span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;userName&quot;</span><span class="p">)</span><span class="c1">//此注解会指定序列化/反序列化时字段的名称</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="kt">String</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nd">@Transient</span><span class="w"> </span><span class="c1">//此注解使得在序列化和反序列化时忽略此字段</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">time</span><span class="p">:</span><span class="kt">String</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
+<h3 id="0">0.引入依赖<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<p><div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;plugin.serialization&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;1.9.0&quot;</span><span class="c1">//根据你的kotlin版本引入插件</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span><span class="w">   </span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
+如果你使用toml，可以如此引入插件<br />
+toml 文件<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[versions]  
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>kotlin_version = &quot;1.9.0&quot;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[plugins]
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>kotlin-serialization = { id = &quot;org.jetbrains.kotlin.plugin.serialization&quot;, version.ref = &quot;kotlin_version&quot; }
+</span></code></pre></div>
+引入插件<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>plugins {  
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    alias(libs.plugins.kotlin.serialization)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>}
+</span></code></pre></div></p>
+<h3 id="1">1.定义可序列化类<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>要求：
+    属性具有setter和getter。例如var类型，构造函数中的val等，委托属性不行
+    <code>@Serializable</code> 注解要求类的主构造函数的所有参数都是属性</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Serializable</span><span class="w">  </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">class</span><span class="w"> </span><span class="n">Test</span><span class="p">(</span><span class="w">  </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;userName&quot;</span><span class="p">)</span><span class="c1">//此注解会指定序列化/反序列化时字段的名称</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="kt">String</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//可被序列化</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;code&quot;</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">code</span><span class="p">:</span><span class="kt">Int</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="c1">//可被序列化</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nd">@Transient</span><span class="w"> </span><span class="c1">//此注解使得在序列化和反序列化时忽略此字段</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">time</span><span class="p">:</span><span class="kt">String</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">){</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;code2&quot;</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">code2</span><span class="p">:</span><span class="kt">Int</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="c1">//可被序列化</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="c1">// 只有getter，没有setter，不能被序列化</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">path</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;kotlin/</span><span class="si">$</span><span class="n">name</span><span class="s">&quot;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="c1">// 委托属性 --不可被序列化</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">::</span><span class="n">data</span><span class="w"> </span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -596,109 +833,101 @@
 但是需要给与默认值，否则报错<br />
 如果json中包含了被忽略的字段，需要配置coerceInputValues为true，否则会报错</p>
 </div>
-<p>2.配置序列化器（可选）
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">object</span><span class="w"> </span><span class="nc">HttpSerializersModule</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c1">//指定多态结构</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">     </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">pagerEntityModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">     </span><span class="c1">//定义PagerEntity有两个子类：APagerEntity和APagerEntity</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">         </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">PagerEntity</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">             </span><span class="n">subclass</span><span class="p">(</span><span class="n">APagerEntity</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">             </span><span class="n">subclass</span><span class="p">(</span><span class="n">APagerEntity2</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="p">}</span><span class="w">  </span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responseModule</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="kd">var</span><span class="w"> </span><span class="nv">jsonUtil</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">ignoreUnknownKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1">//忽略未知字段</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">coerceInputValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1">//强制默认值</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpSerializersModule</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w">  </span><span class="c1">//（可选）如果需要指定多态结构</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+<h3 id="2">2.配置序列化器（可选）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>更多配置内容查看“配置Json序列化器功能” 这一章</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">object</span><span class="w"> </span><span class="nc">HttpSerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">jsonUtil</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="n">ignoreUnknownKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1">//忽略未知字段</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="n">coerceInputValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1">//强制默认值</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
 </span></code></pre></div>
-3.使用上面定义的jsonUtil序列化和反序列化
-        如果不定用jsonUtil,可以直接使用<code>Json</code>这个默认默认对象
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>//反序列化
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>jsonUtil.decodeFromString&lt;T&gt;(&quot;&quot;)
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>//序列化
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>jsonUtil.encodeToString(data)
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>//生成json对象
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>jsonUtil.encodeToJsonElement(data)
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>//手动构建json对象
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>val jsonBody = buildJsonObject {  
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    put(&quot;id&quot;, 1)  
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    put(&quot;name&quot;, &quot;hello&quot;)  
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    put(&quot;remark&quot;, &quot;remark&quot;)  
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>}
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>//例如使用默认的Json进行序列化和反序列化
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Json.decodeFromString&lt;T&gt;(&quot;&quot;)
+<h3 id="3jsonutil">3.使用上面定义的jsonUtil序列化和反序列化<a class="headerlink" href="#3jsonutil" title="Permanent link">&para;</a></h3>
+<p>如果不定用jsonUtil,可以直接使用<code>Json</code>这个默认默认对象</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>//反序列化
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>jsonUtil.decodeFromString&lt;T&gt;(&quot;&quot;)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>//序列化
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>jsonUtil.encodeToString(data)
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>//生成json对象
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>jsonUtil.encodeToJsonElement(data)
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>//手动构建json对象
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>val jsonBody = buildJsonObject {  
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    put(&quot;id&quot;, 1)  
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    put(&quot;name&quot;, &quot;hello&quot;)  
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    put(&quot;remark&quot;, &quot;remark&quot;)  
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>}
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>//例如使用默认的Json进行序列化和反序列化
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>Json.decodeFromString&lt;T&gt;(&quot;&quot;)
+</span></code></pre></div>
+<hr />
+<p>定义一下下面示例中会用到的快捷方法
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="k">reified</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">toJsonElement</span><span class="p">(</span><span class="n">json</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpSerializersModule</span><span class="p">.</span><span class="na">jsonUtil</span><span class="p">):</span><span class="w"> </span><span class="n">JsonElement</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">json</span><span class="p">.</span><span class="na">encodeToJsonElement</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span><span class="w">  </span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="k">reified</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">toJson</span><span class="p">(</span><span class="n">json</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpSerializersModule</span><span class="p">.</span><span class="na">jsonUtil</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span><span class="w">  </span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="k">reified</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="nf">cast</span><span class="p">(</span><span class="n">json</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpSerializersModule</span><span class="p">.</span><span class="na">jsonUtil</span><span class="p">):</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">json</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h2 id="_2">泛型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在类上使用泛型，这个泛型代表的类型也需要支持可序列化<br />
-比如写一个通用的http请求response返回类
-如下示例，data class，class，都是可以的，不论在构造函数中还是类体中都行。泛型为<code>List&lt;SomeEntity&gt;</code>之类的，只要SomeEntity可序列化就没问题，List之类的kotlin是有默认支持的。</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@Serializable  
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>data class BaseResponse3&lt;out T&gt;(  
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    val data: T? = null,  
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    var code: Int = 200,  
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    var msg: String = &quot;&quot;,  
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>){
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    var name:String =&quot;&quot;
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>}
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>@Serializable   
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>class BaseResponse3&lt;T&gt; (var data: T? = null， var code: Int = 200 ){  
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    var msg: String = &quot;&quot;  
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>}
+泛型为<code>List&lt;SomeEntity&gt;</code>之类的，只要SomeEntity可序列化就没问题，List之类的kotlin是有默认支持的（内置类这一章介绍了一些默认支持的可序列化类）。</p>
+<p>比如写一个通用的http请求response返回类<br />
+示例：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@Serializable  
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>data class BaseResponse3&lt;out T&gt;(  
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    val data: T? = null,    
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    var msg: String = &quot;&quot;,  
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>){
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    var name:String =&quot;&quot;
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>}
 </span></code></pre></div>
-<p>例如：
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">//序列化</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BaseResponse3</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserInfo</span><span class="p">(),</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">633</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test msg&quot;</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BaseResponse3</span><span class="p">(</span><span class="w">  </span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ApkEntity</span><span class="p">(</span><span class="n">appName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;app name1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">apkUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;url......&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">appVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0.236&quot;</span><span class="p">),</span><span class="w">  </span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">999</span><span class="p">,</span><span class="w">  </span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test msg11111&quot;</span><span class="w">  </span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">//打印json，结果正常</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">println</span><span class="p">(</span><span class="s">&quot; a1:</span><span class="si">${</span><span class="n">a1</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n a2: </span><span class="si">${</span><span class="n">a2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1">//定义一下josn数据</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a2s</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="s">&quot;{\&quot;data\&quot;:{\&quot;apkName\&quot;:\&quot;app name1\&quot;,\&quot;apkDownloadUrl\&quot;:\&quot;url......\&quot;,\&quot;apkVersionName\&quot;:\&quot;1.0.236\&quot;},\&quot;code\&quot;:999,\&quot;msg\&quot;:\&quot;test msg11111\&quot;}&quot;</span><span class="w">  </span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a1s</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="s">&quot;{\&quot;data\&quot;:{\&quot;smsCode\&quot;:\&quot;2564\&quot;,\&quot;userName\&quot;:\&quot;op\&quot;,\&quot;appVersion\&quot;:\&quot;1.56\&quot;,\&quot;headPic\&quot;:\&quot;kkkkkkkkkkkkkkkkkkkkk\&quot;,\&quot;tel\&quot;:\&quot;158496875632\&quot;,\&quot;nickName\&quot;:\&quot;tomjjj\&quot;,\&quot;sex\&quot;:1},\&quot;code\&quot;:633,\&quot;msg\&quot;:\&quot;test msg\&quot;} &quot;</span><span class="w">  </span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c1">//反序列化，不会报错</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="n">jsonUtil</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">BaseResponse3</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">a1s</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="n">jsonUtil</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">BaseResponse3</span><span class="o">&lt;</span><span class="n">ApkEntity</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">a2s</span><span class="p">)</span>
+<p>测试代码：
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BaseResponse3</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">testUserInfo</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test msg&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BaseResponse3</span><span class="p">(</span><span class="w">  </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BookInfo</span><span class="p">(</span><span class="n">bookName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;url......&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">authorName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;张三&quot;</span><span class="p">),</span><span class="w">  </span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test msg11111&quot;</span><span class="w">  </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1">//转为为json字符串并进行打印</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">println</span><span class="p">(</span><span class="s">&quot; a1:</span><span class="si">${</span><span class="n">a1</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n a2: </span><span class="si">${</span><span class="n">a2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1">//定义json字符串</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a1s</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;{\&quot;data\&quot;:{\&quot;userName\&quot;:\&quot;op\&quot;,\&quot;id\&quot;:1,\&quot;tel\&quot;:\&quot;158496875632\&quot;,\&quot;nickName\&quot;:\&quot;tomjjj\&quot;,\&quot;sex\&quot;:1},\&quot;msg\&quot;:\&quot;test msg\&quot;}&quot;</span><span class="w">  </span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a2s</span><span class="o">=</span><span class="s">&quot;{\&quot;data\&quot;:{\&quot;bookName\&quot;:\&quot;hello world\&quot;,\&quot;url\&quot;:\&quot;url......\&quot;,\&quot;authorName\&quot;:\&quot;张三\&quot;},\&quot;msg\&quot;:\&quot;test msg11111\&quot;}&quot;</span><span class="w">  </span><span class="c1">//反序列化</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="n">a1s</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">BaseResponse3</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;&gt;</span><span class="p">()</span><span class="w">  </span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">a2s</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">BaseResponse3</span><span class="o">&lt;</span><span class="n">BookInfo</span><span class="o">&gt;&gt;</span><span class="p">()</span>
 </span></code></pre></div></p>
 <h2 id="_3">多态和泛型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>如果我有一个抽象类或是密封类，他们都有不同的实现，想令这些实现也都支持序列化和反序列化：</p>
 <h3 id="_4">如果是父类是抽象类，夹杂着泛型和多种子类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>序列化可以处理任意的 “开放 “类或 “抽象 “类。但是，由于这种多态性是开放的，因此有可能在源代码的任何地方，甚至在其他模块中定义了子类，因此序列化的子类列表无法在编译时确定，必须在运行时显式注册。</li>
+<li><strong>序列化可以处理任意的<code>open class</code>或 <code>abstract class</code>。但是，由于这种多态性是开放的，有可能被放在源代码的任何地方，甚至在其他模块中定义子类，因此序列化的子类列表无法在编译时确定，必须在运行时显式注册。</strong></li>
 </ul>
 <p>例如：我们有如下几个类
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>@Serializable  
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>abstract class Response&lt;out T&gt;  
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>@Serializable  
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>@SerialName(&quot;OkResponse1&quot;)  
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>open class OkResponse1&lt;T&gt;(var data: T? = null) : Response&lt;T&gt;(){  
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    var code: Int = 200  
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    var rtncode: Int = 200  
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    var msg: String = &quot;&quot;  
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>}
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>@Serializable  
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>@SerialName(&quot;OkResponse2&quot;)  
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>data class OkResponse2&lt;out T&gt;(  
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    val data: T? = null,  
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    var rtncode: Int = 200,  
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    var msg: String = &quot;&quot;,  
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>) : Response&lt;T&gt;()  
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Serializable</span><span class="w">  </span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Response</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w">  </span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nd">@Serializable</span><span class="w">  </span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;OkResponse1&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kd">open</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">OkResponse1</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">T? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(){</span><span class="w">  </span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">code</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="w">  </span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">rtncode</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="w">  </span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nd">@Serializable</span><span class="w">  </span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="nd">@SerialName</span><span class="p">(</span><span class="s">&quot;OkResponse2&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">OkResponse2</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="w">  </span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">T? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">  </span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">rtncode</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="p">,</span><span class="w">  </span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">  </span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
 </span></code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -708,77 +937,149 @@ OkResponse2则是一个data class，字段都在构造函数中  </p>
 </div>
 <p>OkResponse1和OkResponse2都是Response的子类，需要在序列化模块中注册：</p>
 <p>多个SerializersModule可以直接用<code>+</code>合并</p>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">responseModule2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="c1">//指定OkResponse1和OkResponse2是Response的子类，且泛型为Any，如此，泛型可传任意可序列化和反序列化的类型了</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Response</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OkResponse1</span><span class="p">.</span><span class="na">serializer</span><span class="p">(</span><span class="n">PolymorphicSerializer</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)))</span><span class="w">  </span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="n">subclass</span><span class="p">(</span><span class="n">OkResponse2</span><span class="p">.</span><span class="na">serializer</span><span class="p">(</span><span class="n">PolymorphicSerializer</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)))</span><span class="w">  </span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">var</span><span class="w"> </span><span class="nv">jsonUtil</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">ignoreUnknownKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">coerceInputValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="n">responseModule</span><span class="o">+</span><span class="w"> </span><span class="n">responseModule2</span><span class="w">  </span><span class="c1">//合并多个SerializersModule</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">//可选，如果需要</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">object</span><span class="w"> </span><span class="nc">HttpSerializersModule</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">//指定多态结构</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">pagerEntityModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="c1">//定义PagerEntity有两个子类：APagerEntity和APagerEntity</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">PagerEntity</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="n">subclass</span><span class="p">(</span><span class="n">APagerEntity</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="n">subclass</span><span class="p">(</span><span class="n">APagerEntity2</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">responseModule2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializersModule</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="c1">//指定OkResponse1和OkResponse2是Response的子类，且泛型为Any，如此，泛型可传任意可序列化和反序列化的类型了</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="n">polymorphic</span><span class="p">(</span><span class="n">Response</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="n">subclass</span><span class="p">(</span><span class="n">OkResponse1</span><span class="p">.</span><span class="na">serializer</span><span class="p">(</span><span class="n">PolymorphicSerializer</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)))</span><span class="w">  </span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="n">subclass</span><span class="p">(</span><span class="n">OkResponse2</span><span class="p">.</span><span class="na">serializer</span><span class="p">(</span><span class="n">PolymorphicSerializer</span><span class="p">(</span><span class="kt">Any</span><span class="o">::</span><span class="n">class</span><span class="p">)))</span><span class="w">  </span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responseModule</span><span class="o">+</span><span class="n">pagerEntityModule</span><span class="w"> </span><span class="c1">//合并多个SerializersModule</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="p">}</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="kd">var</span><span class="w"> </span><span class="nv">jsonUtil</span><span class="p">:</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">    </span><span class="n">ignoreUnknownKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">    </span><span class="n">coerceInputValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">    </span><span class="n">serializersModule</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">HttpSerializersModule</span><span class="p">.</span><span class="na">get</span><span class="p">()</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li>测试1
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">//1. string类型  </span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;oooo&quot;</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">data</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">//2. list类型  </span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">val</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">s</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">SysUserEntity</span><span class="p">())</span><span class="w">  </span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">data2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">//3. 普通类型  </span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data23</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">data23</span><span class="p">.</span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SysUserEntity</span><span class="p">()</span><span class="w"> </span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">data23</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">println</span><span class="p">(</span><span class="s">&quot;Page: </span><span class="si">${</span><span class="n">data</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data23</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{\&quot;data\&quot;:\&quot;oooo\&quot;}&quot;</span><span class="w">  </span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a2</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="s">&quot;{\&quot;data\&quot;:[{\&quot;smsCode\&quot;:\&quot;2564\&quot;,\&quot;userName\&quot;:\&quot;op\&quot;,\&quot;appVersion\&quot;:\&quot;1.56\&quot;,\&quot;headPic\&quot;:\&quot;kkkkkkkkkkkkkkkkkkkkk\&quot;,\&quot;tel\&quot;:\&quot;158496875632\&quot;,\&quot;nickName\&quot;:\&quot;tomjjj\&quot;,\&quot;sex\&quot;:1}]}&quot;</span><span class="w">  </span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a3</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="s">&quot;{\&quot;data\&quot;:{\&quot;smsCode\&quot;:\&quot;2564\&quot;,\&quot;userName\&quot;:\&quot;op\&quot;,\&quot;appVersion\&quot;:\&quot;1.56\&quot;,\&quot;headPic\&quot;:\&quot;kkkkkkkkkkkkkkkkkkkkk\&quot;,\&quot;tel\&quot;:\&quot;158496875632\&quot;,\&quot;nickName\&quot;:\&quot;tomjjj\&quot;,\&quot;sex\&quot;:1}}&quot;</span><span class="w">  </span>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="n">a1</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;&gt;</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="n">a2</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;&gt;&gt;</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="n">a3</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;&gt;</span><span class="p">()</span>
+<li>测试OkResponse1
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">//1. string类型  </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;oooo&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1">//2. list类型  </span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">s</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">testUserInfo</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1">//3. 普通类型  </span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">data3</span><span class="p">.</span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">testUserInfo</span><span class="w">  </span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">println</span><span class="p">(</span><span class="s">&quot;JSON: </span><span class="si">${</span><span class="n">data</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data3</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{\&quot;data\&quot;:\&quot;oooo\&quot;}&quot;</span><span class="w">  </span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a2</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;{\&quot;data\&quot;:[{\&quot;userName\&quot;:\&quot;op\&quot;,\&quot;id\&quot;:1,\&quot;tel\&quot;:\&quot;158496875632\&quot;,\&quot;nickName\&quot;:\&quot;tomjjj\&quot;,\&quot;sex\&quot;:1}]}&quot;</span><span class="w">  </span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="kd">val</span><span class="w"> </span><span class="nv">a3</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;{\&quot;data\&quot;:{\&quot;userName\&quot;:\&quot;op\&quot;,\&quot;id\&quot;:1,\&quot;tel\&quot;:\&quot;158496875632\&quot;,\&quot;nickName\&quot;:\&quot;tomjjj\&quot;,\&quot;sex\&quot;:1}}&quot;</span><span class="w"> </span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="n">a1</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;&gt;</span><span class="p">()</span><span class="w">  </span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="n">a2</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;&gt;&gt;</span><span class="p">()</span><span class="w">  </span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="n">a3</span><span class="p">.</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">OkResponse1</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;&gt;</span><span class="p">()</span>
 </span></code></pre></div></li>
-<li>测试2：
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse2</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">data</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">val</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">SysUserEntity</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">s</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">LoginPrefs</span><span class="p">.</span><span class="na">loginUserInfo</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse2</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w">  </span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">data2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data23</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse2</span><span class="p">(</span><span class="n">SysUserEntity</span><span class="p">())</span><span class="w">  </span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">data23</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="w">  </span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">println</span><span class="p">(</span><span class="s">&quot;Page: </span><span class="si">${</span><span class="n">data</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data23</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<li>测试OkResponse2：
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse2</span><span class="p">(</span><span class="s">&quot;DDD&quot;</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">val</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="p">()</span><span class="w">  </span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">s</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">testUserInfo</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse2</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="kd">val</span><span class="w"> </span><span class="nv">data3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OkResponse2</span><span class="p">(</span><span class="n">testUserInfo</span><span class="p">)</span><span class="w">  </span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">println</span><span class="p">(</span><span class="s">&quot;Page: </span><span class="si">${</span><span class="n">data</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data2</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s"> \n </span><span class="si">${</span><span class="n">data3</span><span class="p">.</span><span class="na">toJson</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
 </span></code></pre></div></li>
 </ul>
 <h3 id="_5">如果是密封类<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>密封类的所有子类都必须显式标记为 <code>@Serializable</code> 。</p>
-<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Serializable</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;open&quot;</span><span class="p">,</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nd">@Serializable</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="c1">// Serializing data of compile-time type Project</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="p">}</span>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;open&quot;</span><span class="p">,</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nd">@Serializable</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="kd">class</span><span class="w"> </span><span class="nc">OwnedProject</span><span class="p">(</span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">owner</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">()</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OwnedProject</span><span class="p">(</span><span class="s">&quot;kotlinx.coroutines&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;kotlin&quot;</span><span class="p">)</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="c1">// Serializing data of compile-time type Project</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="_6">序列化第三方类<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>如果可序列化类中包含无法添加@Serializable的类的属性<br />
+例如Date这个第三方类，
+有两种方式让它支持序列化和反序列化</p>
+<h3 id="_7">首先定义这个类如何序列化和反序列化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>例如：使用如下代码，告知序列化器，将date类的实例序列化时转换为Long，反序列化时，如何生成Date实例
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>object DateAsLongSerializer : KSerializer&lt;Date&gt; {
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor(&quot;Date&quot;, PrimitiveKind.LONG)
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    override fun serialize(encoder: Encoder, value: Date) = encoder.encodeLong(value.time)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    override fun deserialize(decoder: Decoder): Date = Date(decoder.decodeLong())
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>}
+</span></code></pre></div></p>
+<h3 id="1_1">方式1：手动传递<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>使用encodeToString序列化时，第一个参数将上面定义的DateAsLongSerializer传入即可</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                                              </span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">kotlin10ReleaseDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&quot;yyyy-MM-ddX&quot;</span><span class="p">).</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;2016-02-15+00&quot;</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">        </span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="hll"><span class="w">                </span><span class="n">DateAsLongSerializer</span><span class="p">,</span>
+</span></span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">                </span><span class="n">kotlin10ReleaseDate</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">                </span><span class="p">)</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="p">)</span><span class="w">    </span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="2_1">方式2：在属性上指定序列化程序<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>如果这个date是某个可序列化类的属性，可以使用下面代码，将DateAsLongSerializer指定给date字段</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nd">@Serializable</span><span class="w">          </span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">ProgrammingLanguage</span><span class="p">(</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="hll"><span class="w">    </span><span class="nd">@Serializable</span><span class="p">(</span><span class="n">with</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateAsLongSerializer</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+</span></span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">stableReleaseDate</span><span class="p">:</span><span class="w"> </span><span class="n">Date</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">)</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ProgrammingLanguage</span><span class="p">(</span><span class="s">&quot;Kotlin&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&quot;yyyy-MM-ddX&quot;</span><span class="p">).</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;2016-02-15+00&quot;</span><span class="p">))</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="json">备用 Json 名称<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
+<p>上面说到<code>@SerialName</code> 注解可以更改 JSON 字段的名称，但它会阻止使用旧名称解码数据。
+为了支持一个 Kotlin 属性的多个 JSON 名称，可以使用 JsonNames 注解
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nd">@Serializable</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">(</span><span class="nd">@JsonNames</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">)</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;&quot;&quot;{&quot;name&quot;:&quot;kotlinx.serialization&quot;}&quot;&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="nv">oldProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Json</span><span class="p">.</span><span class="na">decodeFromString</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;&quot;&quot;{&quot;title&quot;:&quot;kotlinx.coroutines&quot;}&quot;&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">oldProject</span><span class="p">)</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="p">}</span>
+</span></code></pre></div>
+这两个 <code>name</code> 字段和 <code>title</code> Json 字段都对应于 <code>name</code> property：
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">kotlinx</span><span class="p">.</span><span class="na">serialization</span><span class="p">)</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">kotlinx</span><span class="p">.</span><span class="na">coroutines</span><span class="p">)</span>
+</span></code></pre></div></p>
 
 
 
@@ -815,13 +1116,13 @@ OkResponse2则是一个data class，字段都在构造函数中  </p>
         
         
           
-          <a href="%E7%9B%AE%E5%BD%95-0/" class="md-footer__link md-footer__link--next" aria-label="下一页: Kotlin Serialization Guide">
+          <a href="%E5%9F%BA%E6%9C%AC%E5%BA%8F%E5%88%97%E5%8C%96-1/" class="md-footer__link md-footer__link--next" aria-label="下一页: 序列化的基本使用">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Kotlin Serialization Guide
+                序列化的基本使用
               </div>
             </div>
             <div class="md-footer__button md-icon">

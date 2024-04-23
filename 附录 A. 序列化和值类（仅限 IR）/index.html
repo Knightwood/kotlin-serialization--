@@ -22,7 +22,7 @@
     
     
       
-        <title>Serialization and value classes (IR-specific) - kotlin序列化中文文档</title>
+        <title>序列化和值类（特定于 IR） - kotlin序列化中文文档</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#serialization-and-value-classes-ir-specific" class="md-skip">
+        <a href="#ir" class="md-skip">
           跳转至
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Serialization and value classes (IR-specific)
+              序列化和值类（特定于 IR）
             
           </span>
         </div>
@@ -228,27 +228,7 @@
         
   
   <span class="md-ellipsis">
-    简单使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E7%9B%AE%E5%BD%95-0/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Kotlin Serialization Guide
+    简单入门使用文档
   </span>
   
 
@@ -268,7 +248,7 @@
         
   
   <span class="md-ellipsis">
-    Basic Serialization 基本序列化
+    序列化的基本使用
   </span>
   
 
@@ -288,7 +268,7 @@
         
   
   <span class="md-ellipsis">
-    Builtin classes 内置类
+    内置类
   </span>
   
 
@@ -308,7 +288,7 @@
         
   
   <span class="md-ellipsis">
-    Serializers 序列化程序
+    序列化程序
   </span>
   
 
@@ -328,7 +308,7 @@
         
   
   <span class="md-ellipsis">
-    Polymorphism 多态性
+    多态性
   </span>
   
 
@@ -348,7 +328,7 @@
         
   
   <span class="md-ellipsis">
-    JSON features JSON 功能
+    配置Json序列化器功能
   </span>
   
 
@@ -368,7 +348,7 @@
         
   
   <span class="md-ellipsis">
-    Alternative and custom formats (experimental)
+    替代格式和自定义格式（实验性）
   </span>
   
 
@@ -397,7 +377,7 @@
           
   
   <span class="md-ellipsis">
-    Serialization and value classes (IR-specific)
+    序列化和值类（特定于 IR）
   </span>
   
 
@@ -408,7 +388,7 @@
         
   
   <span class="md-ellipsis">
-    Serialization and value classes (IR-specific)
+    序列化和值类（特定于 IR）
   </span>
   
 
@@ -432,16 +412,16 @@
         <li class="md-nav__item">
   <a href="#serializable-value-classes" class="md-nav__link">
     <span class="md-ellipsis">
-      Serializable value classes
+      Serializable value classes 可序列化值类
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unsigned-types-support-json-only" class="md-nav__link">
+  <a href="#unsigned-types-support-json-only-json" class="md-nav__link">
     <span class="md-ellipsis">
-      Unsigned types support (JSON only)
+      Unsigned types support (JSON only) 无符号类型支持（仅限 JSON）
     </span>
   </a>
   
@@ -450,7 +430,7 @@
         <li class="md-nav__item">
   <a href="#using-value-classes-in-your-custom-serializers" class="md-nav__link">
     <span class="md-ellipsis">
-      Using value classes in your custom serializers
+      Using value classes in your custom serializers 在自定义序列化程序中使用值类
     </span>
   </a>
   
@@ -493,16 +473,16 @@
         <li class="md-nav__item">
   <a href="#serializable-value-classes" class="md-nav__link">
     <span class="md-ellipsis">
-      Serializable value classes
+      Serializable value classes 可序列化值类
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unsigned-types-support-json-only" class="md-nav__link">
+  <a href="#unsigned-types-support-json-only-json" class="md-nav__link">
     <span class="md-ellipsis">
-      Unsigned types support (JSON only)
+      Unsigned types support (JSON only) 无符号类型支持（仅限 JSON）
     </span>
   </a>
   
@@ -511,7 +491,7 @@
         <li class="md-nav__item">
   <a href="#using-value-classes-in-your-custom-serializers" class="md-nav__link">
     <span class="md-ellipsis">
-      Using value classes in your custom serializers
+      Using value classes in your custom serializers 在自定义序列化程序中使用值类
     </span>
   </a>
   
@@ -535,35 +515,22 @@
   
 
 
-<h1 id="serialization-and-value-classes-ir-specific">Serialization and value classes (IR-specific)<a class="headerlink" href="#serialization-and-value-classes-ir-specific" title="Permanent link">&para;</a></h1>
-<p>序列化和值类（特定于 IR）</p>
-<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#serialization-and-value-classes-ir-specific"></a></p>
+<h1 id="ir">序列化和值类（特定于 IR）<a class="headerlink" href="#ir" title="Permanent link">&para;</a></h1>
 <p>This appendix describes how value classes are handled by kotlinx.serialization.<br />
 本附录描述了 kotlinx.serialization 如何处理值类。</p>
 <blockquote>
 <p>Features described are available on JVM/IR (enabled by default), JS/IR and Native backends.<br />
 所描述的功能在 JVM/IR（默认启用）、JS/IR 和本机后端上可用。</p>
 </blockquote>
-<p><strong>Table of contents 目录</strong></p>
-<ul>
-<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#serializable-value-classes">Serializable value classes<br />
-    可序列化值类</a></li>
-<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#unsigned-types-support-json-only">Unsigned types support (JSON only)<br />
-    无符号类型支持（仅限 JSON）</a></li>
-<li><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#using-value-classes-in-your-custom-serializers">Using value classes in your custom serializers<br />
-    在自定义序列化程序中使用值类</a></li>
-</ul>
-<h2 id="serializable-value-classes">Serializable value classes<a class="headerlink" href="#serializable-value-classes" title="Permanent link">&para;</a></h2>
-<p>可序列化值类</p>
-<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#serializable-value-classes"></a></p>
+<h2 id="serializable-value-classes">Serializable value classes  可序列化值类<a class="headerlink" href="#serializable-value-classes" title="Permanent link">&para;</a></h2>
 <p>We can mark value class as serializable:<br />
 我们可以将值类标记为可序列化：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Serializable</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@JvmInline</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">value</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">rgb</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Value class in Kotlin is stored as its underlying type when possible (i.e. no boxing is required). Serialization framework does not impose any additional restrictions and uses the underlying type where possible as well.<br />
-在可能的情况下，Kotlin 中的值类存储为其基础类型（即不需要装箱）。序列化框架不施加任何额外的限制，并且尽可能使用基础类型。</p>
+<p>Value class in Kotlin is stored as its underlying type when possible (i.e. no boxing is required). Serialization framework does not impose any additional restrictions and uses the underlying type where possible as well.  </p>
+<p>在可能的情况下，Kotlin 中的值类存储为其基础类型（即不需要装箱）。序列化框架不施加任何额外的限制，并且尽可能使用基础类型。</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Serializable</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">NamedColor</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">color</span><span class="p">:</span><span class="w"> </span><span class="n">Color</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -571,12 +538,12 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">Json</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">NamedColor</span><span class="p">(</span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">)))</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>In this example, <code>NamedColor</code> is serialized as two primitives: <code>color: Int</code> and <code>name: String</code> without an allocation of <code>Color</code> class. When we run the example, encoding data with JSON format, we get the following output:<br />
-在此示例中， <code>NamedColor</code> 被序列化为两个基元： <code>color: Int</code> 并且 <code>name: String</code> 没有 <code>Color</code> 类的分配。当我们运行示例时，使用 JSON 格式对数据进行编码，我们得到以下输出：</p>
+<p>In this example, <code>NamedColor</code> is serialized as two primitives: <code>color: Int</code> and <code>name: String</code> without an allocation of <code>Color</code> class. When we run the example, encoding data with JSON format, we get the following output:  </p>
+<p>在此示例中， <code>NamedColor</code> 被序列化为两个基元： <code>color: Int</code> 并且 <code>name: String</code> 没有 <code>Color</code> 类的分配。当我们运行示例时，使用 JSON 格式对数据进行编码，我们得到以下输出：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{&quot;color&quot;: 0, &quot;name&quot;: &quot;black&quot;}
 </span></code></pre></div>
-<p>As we see, <code>Color</code> class is not included during the encoding, only its underlying data. This invariant holds even if the actual value class is <a href="https://kotlinlang.org/docs/reference/inline-classes.html#representation">allocated</a> — for example, when value class is used as a generic type argument:<br />
-正如我们所看到的， <code>Color</code> 在编码过程中不包括类，只包含其基础数据。即使分配了实际的值类，此不变量也成立，例如，当值类用作泛型类型参数时：</p>
+<p>As we see, <code>Color</code> class is not included during the encoding, only its underlying data. This invariant holds even if the actual value class is <a href="https://kotlinlang.org/docs/reference/inline-classes.html#representation">allocated</a> — for example, when value class is used as a generic type argument:  </p>
+<p>正如我们所看到的， <code>Color</code> 在编码过程中不包括类，只包含其基础数据。即使分配了实际的值类，此不变量也成立，例如，当值类用作泛型类型参数时：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Serializable</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Palette</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">colors</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Color</span><span class="o">&gt;</span><span class="p">)</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -588,11 +555,9 @@
 代码段生成以下输出：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{&quot;colors&quot;:[0, 255, 128]}
 </span></code></pre></div>
-<h2 id="unsigned-types-support-json-only">Unsigned types support (JSON only)<a class="headerlink" href="#unsigned-types-support-json-only" title="Permanent link">&para;</a></h2>
-<p>无符号类型支持（仅限 JSON）</p>
-<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#unsigned-types-support-json-only"></a></p>
-<p>Kotlin standard library provides ready-to-use unsigned arithmetics, leveraging value classes to represent unsigned types: <code>UByte</code>, <code>UShort</code>, <code>UInt</code> and <code>ULong</code>. <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json/index.html">Json</a> format has built-in support for them: these types are serialized as theirs string representations in unsigned form. These types are handled as regular serializable types by the compiler plugin and can be freely used in serializable classes:<br />
-Kotlin 标准库提供现成的无符号算术，利用值类来表示无符号类型： <code>UByte</code> 、 <code>UShort</code> 和 <code>UInt</code> <code>ULong</code> 。Json 格式对它们有内置的支持：这些类型以无符号形式序列化为它们的字符串表示形式。这些类型由编译器插件作为常规的可序列化类型进行处理，并且可以在可序列化类中自由使用：</p>
+<h2 id="unsigned-types-support-json-only-json">Unsigned types support (JSON only)  无符号类型支持（仅限 JSON）<a class="headerlink" href="#unsigned-types-support-json-only-json" title="Permanent link">&para;</a></h2>
+<p>Kotlin standard library provides ready-to-use unsigned arithmetics, leveraging value classes to represent unsigned types: <code>UByte</code>, <code>UShort</code>, <code>UInt</code> and <code>ULong</code>. <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json/index.html">Json</a> format has built-in support for them: these types are serialized as theirs string representations in unsigned form. These types are handled as regular serializable types by the compiler plugin and can be freely used in serializable classes:  </p>
+<p>Kotlin 标准库提供现成的无符号算术，利用值类来表示无符号类型： <code>UByte</code> 、 <code>UShort</code> 和 <code>UInt</code> <code>ULong</code> 。Json 格式对它们有内置的支持：这些类型以无符号形式序列化为它们的字符串表示形式。这些类型由编译器插件作为常规的可序列化类型进行处理，并且可以在可序列化类中自由使用：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Serializable</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Counter</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">counted</span><span class="p">:</span><span class="w"> </span><span class="n">UByte</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">description</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -606,14 +571,12 @@ Kotlin 标准库提供现成的无符号算术，利用值类来表示无符号�
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{&quot;counted&quot;:239,&quot;description&quot;:&quot;tries&quot;}
 </span></code></pre></div>
 <blockquote>
-<p>Unsigned types are currently supported only in JSON format. Other formats such as ProtoBuf and CBOR use built-in serializers that use an underlying signed representation for unsigned types.<br />
-目前仅支持 JSON 格式的无符号类型。其他格式（如 ProtoBuf 和 CBOR）使用内置序列化程序，这些序列化程序对无符号类型使用基础有符号表示形式。</p>
+<p>Unsigned types are currently supported only in JSON format. Other formats such as ProtoBuf and CBOR use built-in serializers that use an underlying signed representation for unsigned types.  </p>
+<p>目前仅支持 JSON 格式的无符号类型。其他格式（如 ProtoBuf 和 CBOR）使用内置序列化程序，这些序列化程序对无符号类型使用基础有符号表示形式。</p>
 </blockquote>
-<h2 id="using-value-classes-in-your-custom-serializers">Using value classes in your custom serializers<a class="headerlink" href="#using-value-classes-in-your-custom-serializers" title="Permanent link">&para;</a></h2>
-<p>在自定义序列化程序中使用值类</p>
-<p><a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/value-classes.md#using-value-classes-in-your-custom-serializers"></a></p>
-<p>Let&rsquo;s return to our <code>NamedColor</code> example and try to write a custom serializer for it. Normally, as shown in <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#hand-written-composite-serializer">Hand-written composite serializer</a>, we would write the following code in <code>serialize</code> method:<br />
-让我们回到我们的 <code>NamedColor</code> 示例，并尝试为它编写一个自定义序列化程序。通常，如手写复合序列化器中所示，我们会在方法中 <code>serialize</code> 编写以下代码：</p>
+<h2 id="using-value-classes-in-your-custom-serializers">Using value classes in your custom serializers  在自定义序列化程序中使用值类<a class="headerlink" href="#using-value-classes-in-your-custom-serializers" title="Permanent link">&para;</a></h2>
+<p>Let&rsquo;s return to our <code>NamedColor</code> example and try to write a custom serializer for it. Normally, as shown in <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#hand-written-composite-serializer">Hand-written composite serializer</a>, we would write the following code in <code>serialize</code> method:  </p>
+<p>让我们回到我们的 <code>NamedColor</code> 示例，并尝试为它编写一个自定义序列化程序。通常，如手写复合序列化器中所示，我们会在方法中 <code>serialize</code> 编写以下代码：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">encoder</span><span class="p">:</span><span class="w"> </span><span class="n">Encoder</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">NamedColor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="n">encoder</span><span class="p">.</span><span class="na">encodeStructure</span><span class="p">(</span><span class="n">descriptor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">encodeSerializableElement</span><span class="p">(</span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">serializer</span><span class="p">(),</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="na">color</span><span class="p">)</span>
@@ -621,8 +584,8 @@ Kotlin 标准库提供现成的无符号算术，利用值类来表示无符号�
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>However, since <code>Color</code> is used as a type argument in <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-encoder/encode-serializable-element.html">encodeSerializableElement</a> function, <code>value.color</code> will be boxed to <code>Color</code> wrapper before passing it to the function, preventing the value class optimization. To avoid this, we can use special <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-encoder/encode-inline-element.html">encodeInlineElement</a> function instead. It uses <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.descriptors/-serial-descriptor/index.html">serial descriptor</a> of <code>Color</code> (<a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.descriptors/-serial-descriptor/get-element-descriptor.html">retrieved</a> from serial descriptor of <code>NamedColor</code>) instead of <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-k-serializer/index.html">KSerializer</a>, does not have type parameters and does not accept any values. Instead, it returns <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/index.html">Encoder</a>. Using it, we can encode unboxed value:<br />
-但是，由于 <code>Color</code> 在 encodeSerializableElement 函数中用作类型参数， <code>value.color</code> 因此在将其传递给函数之前将被装箱到 <code>Color</code> 包装器，从而阻止值类优化。为了避免这种情况，我们可以改用特殊的 encodeInlineElement 函数。它使用 （ <code>Color</code> 从 <code>NamedColor</code> 的 的 串行描述符 检索 ）而不是 KSerializer 的串行描述符，没有类型参数，也不接受任何值。相反，它返回 Encoder。使用它，我们可以对未装箱的值进行编码：</p>
+<p>However, since <code>Color</code> is used as a type argument in <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-encoder/encode-serializable-element.html">encodeSerializableElement</a> function, <code>value.color</code> will be boxed to <code>Color</code> wrapper before passing it to the function, preventing the value class optimization. To avoid this, we can use special <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-encoder/encode-inline-element.html">encodeInlineElement</a> function instead. It uses <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.descriptors/-serial-descriptor/index.html">serial descriptor</a> of <code>Color</code> (<a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.descriptors/-serial-descriptor/get-element-descriptor.html">retrieved</a> from serial descriptor of <code>NamedColor</code>) instead of <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-k-serializer/index.html">KSerializer</a>, does not have type parameters and does not accept any values. Instead, it returns <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/index.html">Encoder</a>. Using it, we can encode unboxed value:  </p>
+<p>但是，由于 <code>Color</code> 在 encodeSerializableElement 函数中用作类型参数， <code>value.color</code> 因此在将其传递给函数之前将被装箱到 <code>Color</code> 包装器，从而阻止值类优化。为了避免这种情况，我们可以改用特殊的 encodeInlineElement 函数。它使用 （ <code>Color</code> 从 <code>NamedColor</code> 的 的 串行描述符 检索 ）而不是 KSerializer 的串行描述符，没有类型参数，也不接受任何值。相反，它返回 Encoder。使用它，我们可以对未装箱的值进行编码：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">encoder</span><span class="p">:</span><span class="w"> </span><span class="n">Encoder</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">NamedColor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="n">encoder</span><span class="p">.</span><span class="na">encodeStructure</span><span class="p">(</span><span class="n">descriptor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">encodeInlineElement</span><span class="p">(</span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">).</span><span class="na">encodeInt</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">color</span><span class="p">)</span>
@@ -630,31 +593,31 @@ Kotlin 标准库提供现成的无符号算术，利用值类来表示无符号�
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>The same principle goes also with <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-decoder/index.html">CompositeDecoder</a>: it has <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-decoder/decode-inline-element.html">decodeInlineElement</a> function that returns <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-decoder/index.html">Decoder</a>.<br />
-CompositeDecoder 也有同样的原理：它具有返回 Decoder 的 decodeInlineElement 函数。</p>
-<p>If your class should be represented as a primitive (as shown in <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#primitive-serializer">Primitive serializer</a> section), and you cannot use <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/encode-structure.html">encodeStructure</a> function, there is a complementary function in <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/index.html">Encoder</a> called <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/encode-inline.html">encodeInline</a>. We will use it to show an example how one can represent a class as an unsigned integer.<br />
-如果类应表示为基元（如基元序列化程序部分所示），并且不能使用 encodeStructure 函数，则 Encoder 中有一个名为 encodeInline 的补充函数。我们将用它来展示一个示例，如何将类表示为无符号整数。</p>
+<p>The same principle goes also with <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-decoder/index.html">CompositeDecoder</a>: it has <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-composite-decoder/decode-inline-element.html">decodeInlineElement</a> function that returns <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-decoder/index.html">Decoder</a>.  </p>
+<p>CompositeDecoder 也有同样的原理：它具有返回 Decoder 的 decodeInlineElement 函数。</p>
+<p>If your class should be represented as a primitive (as shown in <a href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#primitive-serializer">Primitive serializer</a> section), and you cannot use <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/encode-structure.html">encodeStructure</a> function, there is a complementary function in <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/index.html">Encoder</a> called <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/encode-inline.html">encodeInline</a>. We will use it to show an example how one can represent a class as an unsigned integer.  </p>
+<p>如果类应表示为基元（如基元序列化程序部分所示），并且不能使用 encodeStructure 函数，则 Encoder 中有一个名为 encodeInline 的补充函数。我们将用它来展示一个示例，如何将类表示为无符号整数。</p>
 <p>Let&rsquo;s start with a UID class:<br />
 让我们从一个 UID 类开始：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Serializable</span><span class="p">(</span><span class="n">UIDSerializer</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">UID</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">uid</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
 </span></code></pre></div>
-<p><code>uid</code> type is <code>Int</code>, but suppose we want it to be an unsigned integer in JSON. We can start writing the following custom serializer:<br />
-<code>uid</code> type 是 <code>Int</code> ，但假设我们希望它是 JSON 中的无符号整数。我们可以开始编写以下自定义序列化程序：</p>
+<p><code>uid</code> type is <code>Int</code>, but suppose we want it to be an unsigned integer in JSON. We can start writing the following custom serializer:  </p>
+<p><code>uid</code> type 是 <code>Int</code> ，但假设我们希望它是 JSON 中的无符号整数。我们可以开始编写以下自定义序列化程序：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">object</span><span class="w"> </span><span class="nc">UIDSerializer</span><span class="p">:</span><span class="w"> </span><span class="n">KSerializer</span><span class="o">&lt;</span><span class="n">UID</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">descriptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UInt</span><span class="p">.</span><span class="na">serializer</span><span class="p">().</span><span class="na">descriptor</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Note that we are using here descriptor from <code>UInt.serializer()</code> — it means that the class&rsquo; representation looks like a UInt&rsquo;s one.<br />
-请注意，我们在这里使用的描述符 from <code>UInt.serializer()</code> — 这意味着类的表示形式看起来像 UInt 的表示形式。</p>
+<p>Note that we are using here descriptor from <code>UInt.serializer()</code> — it means that the class&rsquo; representation looks like a UInt&rsquo;s one.  </p>
+<p>请注意，我们在这里使用的描述符 from <code>UInt.serializer()</code> — 这意味着类的表示形式看起来像 UInt 的表示形式。</p>
 <p>Then the <code>serialize</code> method:<br />
 然后方法 <code>serialize</code> ：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">encoder</span><span class="p">:</span><span class="w"> </span><span class="n">Encoder</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">UID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="n">encoder</span><span class="p">.</span><span class="na">encodeInline</span><span class="p">(</span><span class="n">descriptor</span><span class="p">).</span><span class="na">encodeInt</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">uid</span><span class="p">)</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>That&rsquo;s where the magic happens — despite we called a regular <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/encode-int.html">encodeInt</a> with a <code>uid: Int</code> argument, the output will contain an unsigned int because of the special encoder from <code>encodeInline</code> function. Since JSON format supports unsigned integers, it recognizes theirs descriptors when they&rsquo;re passed into <code>encodeInline</code> and handles consecutive calls as for unsigned integers.<br />
-这就是神奇的地方——尽管我们用 <code>uid: Int</code> 参数调用了常规 encodeInt，但由于 <code>encodeInline</code> 函数的特殊编码器，输出将包含一个无符号的 int。由于 JSON 格式支持无符号整数，因此当它们被传入 <code>encodeInline</code> 时，它会识别它们的描述符，并像处理无符号整数一样处理连续调用。</p>
+<p>That&rsquo;s where the magic happens — despite we called a regular <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization.encoding/-encoder/encode-int.html">encodeInt</a> with a <code>uid: Int</code> argument, the output will contain an unsigned int because of the special encoder from <code>encodeInline</code> function. Since JSON format supports unsigned integers, it recognizes theirs descriptors when they&rsquo;re passed into <code>encodeInline</code> and handles consecutive calls as for unsigned integers.  </p>
+<p>这就是神奇的地方——尽管我们用 <code>uid: Int</code> 参数调用了常规 encodeInt，但由于 <code>encodeInline</code> 函数的特殊编码器，输出将包含一个无符号的 int。由于 JSON 格式支持无符号整数，因此当它们被传入 <code>encodeInline</code> 时，它会识别它们的描述符，并像处理无符号整数一样处理连续调用。</p>
 <p>The <code>deserialize</code> method looks symmetrically:<br />
 该 <code>deserialize</code> 方法看起来对称：</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">decoder</span><span class="p">:</span><span class="w"> </span><span class="n">Decoder</span><span class="p">):</span><span class="w"> </span><span class="n">UID</span><span class="w"> </span><span class="p">{</span>
@@ -662,8 +625,8 @@ CompositeDecoder 也有同样的原理：它具有返回 Decoder 的 decodeInlin
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>Disclaimer: You can also write such a serializer for value class itself (imagine UID being the value class — there&rsquo;s no need to change anything in the serializer). However, do not use anything in custom serializers for value classes besides <code>encodeInline</code>. As we discussed, calls to value class serializer may be optimized and replaced with a <code>encodeInlineElement</code> calls. <code>encodeInline</code> and <code>encodeInlineElement</code> calls with the same descriptor are considered equivalent and can be replaced with each other — formats should return the same <code>Encoder</code>. If you embed custom logic in custom value class serializer, you may get different results depending on whether this serializer was called at all (and this, in turn, depends on whether value class was boxed or not).<br />
-免责声明：您也可以为值类本身编写这样的序列化程序（假设 UID 是值类 - 无需更改序列化程序中的任何内容）。但是，除了 <code>encodeInline</code> 之外，不要在自定义序列化程序中对值类使用任何内容。正如我们所讨论的，对值类序列化程序的调用可能会被优化并替换为调用 <code>encodeInlineElement</code> 。 <code>encodeInline</code> 具有相同描述符的 <code>encodeInlineElement</code> 调用被认为是等效的，可以相互替换 — 格式应返回相同的 <code>Encoder</code> 。如果在自定义值类序列化程序中嵌入自定义逻辑，则可能会得到不同的结果，具体取决于是否调用了此序列化程序（而这反过来又取决于值类是否装箱）。****</p>
+<p>Disclaimer: You can also write such a serializer for value class itself (imagine UID being the value class — there&rsquo;s no need to change anything in the serializer). However, do not use anything in custom serializers for value classes besides <code>encodeInline</code>. As we discussed, calls to value class serializer may be optimized and replaced with a <code>encodeInlineElement</code> calls. <code>encodeInline</code> and <code>encodeInlineElement</code> calls with the same descriptor are considered equivalent and can be replaced with each other — formats should return the same <code>Encoder</code>. If you embed custom logic in custom value class serializer, you may get different results depending on whether this serializer was called at all (and this, in turn, depends on whether value class was boxed or not).  </p>
+<p>免责声明：您也可以为值类本身编写这样的序列化程序（假设 UID 是值类 - 无需更改序列化程序中的任何内容）。但是，除了 <code>encodeInline</code> 之外，不要在自定义序列化程序中对值类使用任何内容。正如我们所讨论的，对值类序列化程序的调用可能会被优化并替换为调用 <code>encodeInlineElement</code> 。 <code>encodeInline</code> 具有相同描述符的 <code>encodeInlineElement</code> 调用被认为是等效的，可以相互替换 — 格式应返回相同的 <code>Encoder</code> 。如果在自定义值类序列化程序中嵌入自定义逻辑，则可能会得到不同的结果，具体取决于是否调用了此序列化程序（而这反过来又取决于值类是否装箱）。****</p>
 </blockquote>
 
 
@@ -700,7 +663,7 @@ CompositeDecoder 也有同样的原理：它具有返回 Decoder 的 decodeInlin
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../%E6%9B%BF%E4%BB%A3%E6%A0%BC%E5%BC%8F%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%EF%BC%88%E5%AE%9E%E9%AA%8C%E6%80%A7%EF%BC%89-6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Alternative and custom formats (experimental)">
+          <a href="../%E6%9B%BF%E4%BB%A3%E6%A0%BC%E5%BC%8F%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%EF%BC%88%E5%AE%9E%E9%AA%8C%E6%80%A7%EF%BC%89-6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 替代格式和自定义格式（实验性）">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -710,7 +673,7 @@ CompositeDecoder 也有同样的原理：它具有返回 Decoder 的 decodeInlin
                 上一页
               </span>
               <div class="md-ellipsis">
-                Alternative and custom formats (experimental)
+                替代格式和自定义格式（实验性）
               </div>
             </div>
           </a>
